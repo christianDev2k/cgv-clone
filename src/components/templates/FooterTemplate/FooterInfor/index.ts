@@ -1,0 +1,1 @@
+export { default as FooterInfor } from './FooterInfor';
