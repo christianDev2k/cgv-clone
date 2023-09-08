@@ -1,9 +1,9 @@
 // import React from 'react'
 
-const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+import { HomeTemplate } from 'components';
 
-export default Home
+const Home = () => {
+    return <HomeTemplate />;
+};
+
+export default Home;

@@ -26,6 +26,30 @@ const items: MenuProps['items'] = [
     },
 ];
 
+// const items1: MenuProps['items'] = [
+//     {
+//         key: '1',
+//         label: (
+//             <a href="..." className="font-bold !text-white text-base">
+//                 Phim Đang Chiếu
+//             </a>
+//         ),
+//     },
+//     {
+//         key: '2',
+//         label: (
+//             <a href="..." className="font-bold !text-white text-base">
+//                 Phim Sắp Chiếu
+//             </a>
+//         ),
+//     },
+// ];
+
+const dropdownBg = () => ({
+    backgroundImage: 'url("./images/header/bg_menu_hover.png")',
+    border: '1px solid #fff',
+});
+
 const HeaderTemplate = () => {
     return (
         <div>
@@ -67,22 +91,22 @@ const HeaderTemplate = () => {
                         <img src="./logo/cgvlogo.png" alt="" />
                     </a>
                     <ul className="navbar flex">
-                        <Dropdown
-                            menu={{ items }}
-                            overlayStyle={{
-                                backgroundImage: 'url("./images/header/bg_menu_hover.png")',
-                                padding: '10px',
-                                border: '1px solid #fff',
-                            }}
-                        >
+                        <Dropdown menu={{ items }} overlayStyle={dropdownBg()}>
                             <li className={cx('navbar-item')}>
                                 <a href="...">PHIM</a>
                             </li>
                         </Dropdown>
 
+                        {/* <Dropdown menu={{ items1 }} overlayStyle={dropdownBg()}>
+                            <li className={cx('navbar-item')}>
+                                <a href="...">RẠP CGV</a>
+                            </li>
+                        </Dropdown> */}
+                        
                         <li className={cx('navbar-item')}>
                             <a href="...">RẠP CGV</a>
                         </li>
+
                         <li className={cx('navbar-item')}>
                             <a href="...">THÀNH VIÊN</a>
                         </li>
