@@ -1,0 +1,28 @@
+.film-slide {
+    position: relative;
+
+    .overlay {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        transition: all 0.25s;
+        background-image: url('/images/home/bg-transparent-grey.png');
+
+        .content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--p-8);
+            background-color: rgba($color: #000, $alpha: 0.7);
+        }
+    }
+
+    &:hover .overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+}

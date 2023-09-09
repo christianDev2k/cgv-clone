@@ -1,0 +1,133 @@
+.home-sect-item {
+    flex-grow: 1;
+
+    &:nth-child(2),
+    &:nth-child(4),
+    &:nth-child(6) {
+        border-left: 1px solid var(--black);
+        border-right: 1px solid var(--black);
+    }
+
+    .home-sect-link {
+        text-align: center;
+        background-image: url('/images/home/bg-header-transparent-home.png');
+        height: 90px;
+        display: block;
+
+        &.heater {
+            background-position: 8px -4px;
+        }
+
+        &.now-sh {
+            background-position: 830px -4px;
+        }
+
+        &.special {
+            background-position: 686px -4px;
+        }
+
+        &.event {
+            background-position: 540px -4px;
+        }
+
+        &.contact {
+            background-position: 404px -4px;
+        }
+
+        &.discount {
+            background-position: 264px -4px;
+        }
+
+        &.register {
+            background-position: 132px -4px;
+        }
+    }
+}
+
+.carousel {
+    background-image: url('/images/home/bg_c_bricks.png');
+    margin-top: var(--m-16);
+}
+
+.carousel-arr {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 52px;
+
+    &.pre {
+        left: 20px;
+        background-image: url('/images/home/sprite_btn.png');
+        background-position: -1px 78%;
+
+        &:hover {
+            background-position: -1px 49%;
+        }
+    }
+
+    &.next {
+        right: 20px;
+        background-image: url('/images/home/sprite_btn.png');
+        background-position: -31px 78%;
+
+        &:hover {
+            background-position: -31px 49%;
+        }
+    }
+}
+
+.title {
+    height: 60px;
+    text-align: center;
+    width: 100%;
+    margin: var(--m-20) 0;
+    background: url('/images/home/bg_h3_line.jpg') repeat-x scroll left center rgba(0, 0, 0, 0);
+
+    h2 {
+        display: inline-block;
+        height: 60px;
+        text-indent: -99999px;
+    }
+    &.movie h2 {
+        width: 450px;
+        background: url('/images/home/h3_movie_selection.gif') no-repeat scroll center center / 430px 44px #fdfcf0;
+    }
+
+    &.event h2 {
+        width: 170px;
+        background: url('/images/home/h3_event.gif') no-repeat scroll center center / 150px 44px #fdfcf0;
+    }
+}
+
+.toogle-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: var(--primary);
+    color: var(--white);
+    font-size: var(--fz-14);
+    padding: 2px var(--p-32);
+    position: relative;
+
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 18px;
+        height: 100%;
+    }
+
+    &::before {
+        background-image: url('/images/home/ribon_right.gif');
+        right: 0;
+    }
+
+    &::after {
+        background-image: url('/images/home/ribon_left_menu.gif');
+        left: 0;
+    }
+}
+

@@ -3,7 +3,7 @@
 :root {
     // Color
     --text-color: #222;
-    --text-footer-color: #636363; 
+    --text-footer-color: #636363;
     --black: #000;
     --white: #fff;
     --primary: #e71a0f;
@@ -25,6 +25,7 @@
     --fw-9: 900;
 
     // Radius
+    --radius-5: 5px;
     --radius-6: 6px;
 
     // Margin
@@ -63,7 +64,6 @@
 body {
     font-family: Verdana, Arial, sans-serif;
     color: #222;
-    font-size: 14px;
     line-height: 18px;
 }
 

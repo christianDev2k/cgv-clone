@@ -1,0 +1,62 @@
+.topbar-item {
+    display: flex;
+    align-items: center;
+    margin-left: var(--m-32);
+
+    img {
+        margin-right: var(--m-4);
+    }
+
+    .topbar-link {
+        color: #666;
+    }
+
+    .lang-toggle-btn {
+        margin-bottom: 0;
+        padding: 1px var(--p-12);
+        color: #fff;
+        background-color: #898987;
+
+        &.active {
+            background-color: var(--primary);
+        }
+    }
+
+    &.lang-toggle {
+        border-radius: var(--radius-6);
+        overflow: hidden;
+    }
+}
+
+.header-main {
+    background-image: url('./images/header/bg-top.png');
+    background-repeat: repeat-x;
+    background-position: top left;
+    background-size: auto 100%;
+}
+
+.navbar-item {
+    padding: 0 var(--p-16);
+    font-weight: var(--fw-7);
+    margin-top: var(--m-32);
+    position: relative;
+
+    &.carrer::after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+        background-image: url('./images/header/hot-jobs.png');
+        background-size: cover;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -10px;
+    }
+}
+
+.nav-dropdown {
+    background-image: url('./bg_menu_hover.png');
+    background-size: cover;
+    height: 100%;
+}

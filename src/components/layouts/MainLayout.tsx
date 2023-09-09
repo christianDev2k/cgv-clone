@@ -1,13 +1,13 @@
 // import React from 'react'
-import { HeaderTemplate, FooterTemplate } from 'components';
+import { Header, Footer } from 'components';
 import { Outlet } from 'react-router-dom';
 
 const MainLayout = () => {
     return (
         <div className='container-lg mx-auto'>
-            <HeaderTemplate />
+            <Header />
             <Outlet />
-            <FooterTemplate />
+            <Footer />
         </div>
     );
 };

@@ -1,0 +1,33 @@
+.primary {
+    padding: var(--p-4) var(--p-8);
+    border-radius: var(--radius-5);
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: var(--fw-7);
+    height: auto;
+    background-color: var(--primary) !important;
+    border: 1px solid transparent;
+
+    &:hover {
+        border-color: transparent !important;
+        color: var(--white) !important;
+    }
+}
+
+.buyTicket {
+    background-color: var(--primary);
+    border-radius: var(--radius-5);
+    padding: 3px;
+
+    div {
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        border-radius: var(--radius-5);
+        border: 1px solid rgba($color: #fff, $alpha: 0.5);
+        padding: 2px var(--p-8);
+        text-transform: uppercase;
+        font-weight: var(--fw-7);
+        font-size: var(--fz-14);
+    }
+}
