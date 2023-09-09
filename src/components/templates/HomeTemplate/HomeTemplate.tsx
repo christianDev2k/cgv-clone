@@ -82,8 +82,8 @@ const HomeTemplate = () => {
                     </div>
                     <div>
                         <Swiper slidesPerView={4} spaceBetween={5}>
-                            {listMovies?.map(movie => (
-                                <SwiperSlide>
+                            {listMovies?.map((movie, index) => (
+                                <SwiperSlide key={index}>
                                     <FilmSlide tenPhim={movie.tenPhim} hinhAnh={movie.hinhAnh} />
                                 </SwiperSlide>
                             ))}

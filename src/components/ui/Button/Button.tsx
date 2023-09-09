@@ -3,12 +3,14 @@ import cn from 'classnames';
 import styles from './button.module.scss';
 
 type ButtonProps = ButtonPropsA & {
-    isPrimary?: boolean;
+    primary?: boolean;
+    auth?: boolean;
 };
 
 export const Button = (props: ButtonProps) => {
     const classes = cn({
-        [styles.primary]: props.isPrimary,
+        [styles.primary]: props.primary,
+        [styles.auth]: props.auth
     });
 
     return <ButtonA {...props} className={classes}></ButtonA>;

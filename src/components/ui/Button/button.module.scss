@@ -31,3 +31,19 @@
         font-size: var(--fz-14);
     }
 }
+
+.auth {
+    width: 100%;
+    background-color: var(--primary) !important;
+    color: var(--white);
+    font-size: var(--fz-16);
+    font-weight: var(--fw-5);
+    height: auto !important;
+    padding: calc(var(--p-12) - 2px);
+    border: 1px solid transparent;
+
+    &:hover {
+        border-color: var(--primary) !important;
+        color: var(--white) !important;
+    }
+}

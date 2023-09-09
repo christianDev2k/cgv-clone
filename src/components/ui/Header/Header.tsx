@@ -1,54 +1,10 @@
-// import React from 'react'
 import classNames from 'classnames/bind';
-import type { MenuProps } from 'antd';
-import { Dropdown } from 'antd';
 // ~
 import styles from './header.module.scss';
+import Dropdown from './Dropdown';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
-
-const items: MenuProps['items'] = [
-    {
-        key: '1',
-        label: (
-            <a href="..." className="font-bold !text-white text-base">
-                Phim Đang Chiếu
-            </a>
-        ),
-    },
-    {
-        key: '2',
-        label: (
-            <a href="..." className="font-bold !text-white text-base">
-                Phim Sắp Chiếu
-            </a>
-        ),
-    },
-];
-
-// const items1: MenuProps['items'] = [
-//     {
-//         key: '1',
-//         label: (
-//             <a href="..." className="font-bold !text-white text-base">
-//                 Phim Đang Chiếu
-//             </a>
-//         ),
-//     },
-//     {
-//         key: '2',
-//         label: (
-//             <a href="..." className="font-bold !text-white text-base">
-//                 Phim Sắp Chiếu
-//             </a>
-//         ),
-//     },
-// ];
-
-const dropdownBg = () => ({
-    backgroundImage: 'url("./images/header/bg_menu_hover.png")',
-    border: '1px solid #fff',
-});
 
 const Header = () => {
     return (
@@ -58,7 +14,7 @@ const Header = () => {
                     <ul className="flex justify-end items-center">
                         <li className={cx('topbar-item')}>
                             <img src="./images/header/icon_promotion25.png" alt="Tin mới" />
-                            <a href="" className={cx('topbar-link')}>
+                            <a href="#" className={cx('topbar-link')}>
                                 TIN MỚI & ƯU ĐÃI
                             </a>
                         </li>
@@ -70,13 +26,13 @@ const Header = () => {
                         </li>
                         <li className={cx('topbar-item')}>
                             <img src="./images/header/icon_login25.png" alt="Login" />
-                            <a href="" className={cx('topbar-link')}>
+                            <Link to="/login" className={cx('topbar-link')}>
                                 ĐĂNG NHẬP
-                            </a>
+                            </Link>
                             <span className="mx-1">/</span>
-                            <a href="" className={cx('topbar-link')}>
+                            <Link to="/register" className={cx('topbar-link')}>
                                 ĐĂNG KÝ
-                            </a>
+                            </Link>
                         </li>
                         <li className={cx('topbar-item', 'lang-toggle')}>
                             <button className={cx('lang-toggle-btn', 'active')}>VN</button>
@@ -87,34 +43,30 @@ const Header = () => {
             </div>
             <div className={cx('header-main')}>
                 <div className="max-w-screen-lg mx-auto flex items-center justify-between">
-                    <a href="..." className="logo py-9">
+                    <Link to="/" className="logo py-9">
                         <img src="./logo/cgvlogo.png" alt="" />
-                    </a>
+                    </Link>
                     <ul className="navbar flex">
-                        <Dropdown menu={{ items }} overlayStyle={dropdownBg()}>
-                            <li className={cx('navbar-item')}>
-                                <a href="...">PHIM</a>
-                            </li>
-                        </Dropdown>
-
-                        {/* <Dropdown menu={{ items1 }} overlayStyle={dropdownBg()}>
-                            <li className={cx('navbar-item')}>
-                                <a href="...">RẠP CGV</a>
-                            </li>
-                        </Dropdown> */}
-                        
+                        <li className={cx('navbar-item')}>
+                            <a href="...">PHIM</a>
+                            <Dropdown navList={PhimSubTitle} />
+                        </li>
                         <li className={cx('navbar-item')}>
                             <a href="...">RẠP CGV</a>
+                            <Dropdown navList={RapSubTitle} />
                         </li>
 
                         <li className={cx('navbar-item')}>
                             <a href="...">THÀNH VIÊN</a>
+                            <Dropdown navList={MemberSubTitle} />
                         </li>
                         <li className={cx('navbar-item')}>
                             <a href="...">CULTUREPLEX</a>
+                            <Dropdown navList={PlexSubTitle} />
                         </li>
                         <li className={cx('navbar-item', 'carrer')}>
                             <a href="...">TUYỂN DỤNG</a>
+                            <Dropdown navList={CarrerSubTitle} />
                         </li>
                     </ul>
                     <div className="flex items-center">
@@ -136,3 +88,63 @@ const Header = () => {
 };
 
 export default Header;
+
+const PhimSubTitle = [
+    {
+        title: 'Phim sắp chiếu',
+    },
+    {
+        title: 'Phim đang chiếu',
+    },
+];
+
+const RapSubTitle = [
+    {
+        title: 'Tất cả các rạp',
+    },
+    {
+        title: 'Rạp đặc biệt',
+    },
+    {
+        title: 'Rạp 3D',
+    },
+];
+
+const MemberSubTitle = [
+    {
+        title: 'Tài khoản CGV',
+    },
+    {
+        title: 'Quyền lợi',
+    },
+];
+
+const PlexSubTitle = [
+    {
+        title: 'Quầy Online',
+    },
+    {
+        title: 'Thuê rạp & vé nhóm',
+    },
+    {
+        title: 'E-CGV',
+    },
+    {
+        title: 'CGV EGift',
+    },
+    {
+        title: 'CGV Rules',
+    },
+];
+
+const CarrerSubTitle = [
+    {
+        title: 'Tuyển dụng',
+    },
+    {
+        title: 'Khối văn phòng',
+    },
+    {
+        title: 'Khối cụm rạp',
+    },
+];
