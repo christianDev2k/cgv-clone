@@ -5,20 +5,3 @@
     font-weight: var(--fw-7);
     padding: var(--p-20) var(--p-20) var(--p-8) var(--p-20);
 }
-
-.form-control {
-    display: block;
-    width: 100%;
-    margin: var(--m-8) 0;
-    padding: var(--p-8);
-    border: 1px solid var(--bd-input);
-    height: 30px;
-
-    &::placeholder {
-        font-size: var(--fz-12);
-    }
-
-    &.error {
-        border-color: var(--bd-input-error);
-    }
-}

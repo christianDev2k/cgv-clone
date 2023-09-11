@@ -1,1 +1,2 @@
-export { default as quanLyPhim } from './QuanLyPhimService';
+export { default as quanLyPhimService } from './quanLyPhimService';
+export { default as quanLyNguoiDungService } from './quanLyNguoiDungService';

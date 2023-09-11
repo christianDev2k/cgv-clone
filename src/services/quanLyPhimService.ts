@@ -5,9 +5,9 @@ const api = apiInstance({
     baseURL: import.meta.env.VITE_QUAN_LY_PHIM_API,
 });
 
-const quanLyPhim = {
+const quanLyPhimService = {
     LayDanhSachPhim: () => api.get<ApiResponse<Movie[]>>('/LayDanhSachPhim'),
     LayDanhSachBanner: () => api.get<ApiResponse<Banner[]>>('/LayDanhSachBanner'),
 };
 
-export default quanLyPhim;
+export default quanLyPhimService;

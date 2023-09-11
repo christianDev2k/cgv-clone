@@ -1,9 +1,7 @@
-// import React from 'react'
+import { RegisterTemplate } from 'components';
 
 const Register = () => {
-  return (
-    <div>Register</div>
-  )
-}
+    return <RegisterTemplate />;
+};
 
-export default Register
+export default Register;

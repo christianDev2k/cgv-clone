@@ -1,3 +1,3 @@
-export { default as RegisterTemplate } from './RegisterTemplate';
+export * from './AuthTemplate';
 export * from './HomeTemplate';
 export * from './AuthTemplate';

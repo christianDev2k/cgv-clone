@@ -5,8 +5,8 @@ import { CarouselRef } from 'antd/es/carousel';
 import { SwiperSlide, Swiper } from 'swiper/react';
 // ~
 import { FilmSlide } from 'components';
-import { quanLyPhim } from 'services';
 import { Banner, Movie } from 'types';
+import { quanLyPhimService } from 'services';
 import styles from './home.module.scss';
 import 'swiper/css';
 
@@ -21,8 +21,8 @@ const HomeTemplate = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const movies = await quanLyPhim.LayDanhSachPhim();
-                const banners = await quanLyPhim.LayDanhSachBanner();
+                const movies = await quanLyPhimService.LayDanhSachPhim();
+                const banners = await quanLyPhimService.LayDanhSachBanner();
 
                 setListMovies(movies.data.content);
                 setListBanners(banners.data.content);

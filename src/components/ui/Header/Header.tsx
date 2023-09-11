@@ -1,8 +1,9 @@
 import classNames from 'classnames/bind';
-// ~
-import styles from './header.module.scss';
-import Dropdown from './Dropdown';
 import { Link } from 'react-router-dom';
+// ~
+import Dropdown from './Dropdown';
+import { PATH } from 'constant';
+import styles from './header.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -26,7 +27,7 @@ const Header = () => {
                         </li>
                         <li className={cx('topbar-item')}>
                             <img src="./images/header/icon_login25.png" alt="Login" />
-                            <Link to="/login" className={cx('topbar-link')}>
+                            <Link to={PATH.login} className={cx('topbar-link')}>
                                 ĐĂNG NHẬP
                             </Link>
                             <span className="mx-1">/</span>
