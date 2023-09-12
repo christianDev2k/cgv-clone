@@ -1,38 +1,29 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 import { Carousel } from 'antd';
 import { CarouselRef } from 'antd/es/carousel';
 import { SwiperSlide, Swiper } from 'swiper/react';
+import 'swiper/css';
 // ~
 import { FilmSlide } from 'components';
-import { Banner, Movie } from 'types';
-import { quanLyPhimService } from 'services';
 import styles from './home.module.scss';
-import 'swiper/css';
+import { useAppDispatch } from 'store';
+import { getBannerListThunk, getMovieListThunk } from 'store/quanLyPhimSlice';
+import { useMovie } from 'hooks';
 
 const cx = classNames.bind(styles);
 
 const HomeTemplate = () => {
-    const [listMovies, setListMovies] = useState<Movie[] | undefined>();
-    const [listBanners, setListBanners] = useState<Banner[] | undefined>();
-
     const ref = useRef<CarouselRef>(null);
+    const dispatch = useAppDispatch();
+    const { bannerList, movieList } = useMovie();
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const movies = await quanLyPhimService.LayDanhSachPhim();
-                const banners = await quanLyPhimService.LayDanhSachBanner();
+        dispatch(getMovieListThunk());
+        dispatch(getBannerListThunk());
+    }, [dispatch]);
 
-                setListMovies(movies.data.content);
-                setListBanners(banners.data.content);
-            } catch (err) {
-                // handleError(err)
-            }
-        };
-
-        fetchData();
-    }, []);
+    console.log(movieList);
 
     return (
         <div className="py-8 bg-[#fdfcf0]">
@@ -51,7 +42,7 @@ const HomeTemplate = () => {
                 <div className={cx('carousel')}>
                     <div className="max-w-screen-lg mx-auto relative">
                         <Carousel ref={ref} autoplay dots style={{ border: '1px solid #fff' }}>
-                            {listBanners?.map(item => (
+                            {bannerList?.map(item => (
                                 <div key={item.maBanner}>
                                     <img src={item.hinhAnh} alt="" className="w-full h-[450px]" />
                                 </div>
@@ -82,7 +73,7 @@ const HomeTemplate = () => {
                     </div>
                     <div>
                         <Swiper slidesPerView={4} spaceBetween={5}>
-                            {listMovies?.map((movie, index) => (
+                            {movieList?.map((movie, index) => (
                                 <SwiperSlide key={index}>
                                     <FilmSlide tenPhim={movie.tenPhim} hinhAnh={movie.hinhAnh} />
                                 </SwiperSlide>

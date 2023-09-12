@@ -94,7 +94,7 @@ const LoginTemplate = () => {
                     register={register}
                 />
             </div>
-            <Button htmlType="submit" auth={true}>
+            <Button htmlType="submit" className={cx('auth-btn')}>
                 ĐĂNG KÝ
             </Button>
         </form>

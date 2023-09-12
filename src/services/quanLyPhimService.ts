@@ -6,7 +6,7 @@ const api = apiInstance({
 });
 
 const quanLyPhimService = {
-    LayDanhSachPhim: () => api.get<ApiResponse<Movie[]>>('/LayDanhSachPhim'),
+    LayDanhSachPhim: (query = '') => api.get<ApiResponse<Movie[]>>(`/LayDanhSachPhim${query}`),
     LayDanhSachBanner: () => api.get<ApiResponse<Banner[]>>('/LayDanhSachBanner'),
 };
 

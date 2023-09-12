@@ -5,6 +5,7 @@ import { ConfigProvider } from 'antd';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { StyleProvider } from '@ant-design/cssinjs';
 // ~
 import { GlobalStyles } from 'components';
 import { store } from 'store';
@@ -20,13 +21,24 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                     theme={{
                         token: {
                             colorBgElevated: 'transparent',
-                            colorPrimary: '#e71a0f'
+                            colorPrimary: '#e71a0f',
+                        },
+                        components: {
+                            Breadcrumb: {
+                                itemColor: '#222',
+                                linkColor: '#222',
+                                iconFontSize: 12,
+                                linkHoverColor: 'none',
+                                separatorMargin: 0,
+                            },
                         },
                     }}
                 >
                     <ToastContainer position="top-center" />
                     <Provider store={store}>
-                        <App />
+                        <StyleProvider hashPriority="high">
+                            <App />
+                        </StyleProvider>
                     </Provider>
                 </ConfigProvider>
             </GlobalStyles>

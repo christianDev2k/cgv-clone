@@ -20,7 +20,7 @@ const FilmSlide = ({ hinhAnh, tenPhim }: FilmSlideProps) => {
                     <div className={cx('content')}>
                         <h4 className="text-center font-bold text-white mb-4">{tenPhim}</h4>
                         <div className="flex justify-between">
-                            <Button primary>Xem chi tiết</Button>
+                            <Button type="primary" className='uppercase !font-bold !px-2.5'>Xem chi tiết</Button>
                             <BuyTicketButton />
                         </div>
                     </div>

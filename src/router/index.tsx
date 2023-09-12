@@ -1,8 +1,9 @@
 import { RouteObject } from 'react-router-dom';
 // ~
+import { CommingSoon, Home, Login, Register } from 'pages';
 import { AuthLayout, MainLayout } from 'components';
 import { PATH } from 'constant';
-import { Home, Login, Register } from 'pages';
+import { NowShowing } from 'pages';
 
 const router: RouteObject[] = [
     {
@@ -24,6 +25,14 @@ const router: RouteObject[] = [
             {
                 path: PATH.home,
                 element: <Home />,
+            },
+            {
+                path: PATH.nowShowing,
+                element: <NowShowing />,
+            },
+            {
+                path: PATH.commingSoon,
+                element: <CommingSoon />,
             },
         ],
     },

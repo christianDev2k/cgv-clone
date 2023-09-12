@@ -1,5 +1,5 @@
 import { Button as ButtonA, ButtonProps as ButtonPropsA } from 'antd';
-import cn from 'classnames';
+// import cn from 'classnames';
 import styles from './button.module.scss';
 
 type ButtonProps = ButtonPropsA & {
@@ -7,13 +7,8 @@ type ButtonProps = ButtonPropsA & {
     auth?: boolean;
 };
 
-export const Button = ({ primary, auth, ...rest }: ButtonProps) => {
-    const classes = cn({
-        [styles.primary]: primary,
-        [styles.auth]: auth,
-    });
-
-    return <ButtonA {...rest} className={classes}></ButtonA>;
+export const Button = (props: ButtonProps) => {
+    return <ButtonA {...props} />;
 };
 
 export const BuyTicketButton = () => {

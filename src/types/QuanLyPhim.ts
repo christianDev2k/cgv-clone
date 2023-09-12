@@ -5,7 +5,7 @@ export type Movie = {
     trailer: string;
     hinhAnh: string;
     moTa: string;
-    maNhom: 'GP01';
+    maNhom: string;
     ngayKhoiChieu: string;
     danhGia: number;
     hot: boolean;

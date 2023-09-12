@@ -1,7 +1,9 @@
 const PATH = {
+    home: '/',
     login: '/login',
     register: '/register',
-    home: '/',
-}
+    nowShowing: '/now-showing',
+    commingSoon: '/comming-soon',
+};
 
 export default PATH;

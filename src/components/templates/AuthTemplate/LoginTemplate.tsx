@@ -61,7 +61,7 @@ const LoginTemplate = () => {
                     error={errors?.matKhau?.message}
                 />
             </div>
-            <Button htmlType="submit" auth={true} loading={isFetchingLogin}>
+            <Button htmlType="submit" className={cx('auth-btn')} loading={isFetchingLogin}>
                 ĐĂNG NHẬP
             </Button>
         </form>

@@ -116,9 +116,11 @@ export default Header;
 const PhimSubTitle = [
     {
         title: 'Phim sắp chiếu',
+        path: PATH.commingSoon,
     },
     {
         title: 'Phim đang chiếu',
+        path: PATH.nowShowing,
     },
 ];
 
