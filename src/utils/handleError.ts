@@ -1,9 +1,13 @@
 import { AxiosError, isAxiosError } from 'axios';
 import { toast } from 'react-toastify';
 
-const handleError = (message?: string, error?: AxiosError) => {
+export const handleError = (error?: AxiosError, message?: string) => {
     if (isAxiosError<{ content: string }>(error)) {
-        toast.error(message || error.response?.data.content);
+        toast.error(message || error.response.data.content, {
+            closeButton: false,
+            autoClose: 2000,
+            hideProgressBar: true,
+        });
     }
 };
 

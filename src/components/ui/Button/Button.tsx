@@ -7,13 +7,13 @@ type ButtonProps = ButtonPropsA & {
     auth?: boolean;
 };
 
-export const Button = (props: ButtonProps) => {
+export const Button = ({ primary, auth, ...rest }: ButtonProps) => {
     const classes = cn({
-        [styles.primary]: props.primary,
-        [styles.auth]: props.auth
+        [styles.primary]: primary,
+        [styles.auth]: auth,
     });
 
-    return <ButtonA {...props} className={classes}></ButtonA>;
+    return <ButtonA {...rest} className={classes}></ButtonA>;
 };
 
 export const BuyTicketButton = () => {

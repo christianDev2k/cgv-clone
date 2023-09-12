@@ -7,3 +7,10 @@ export type UserLogin = {
     maLoaiNguoiDung: 'KhachHang' | 'QuanTri';
     accessToken: string;
 };
+
+export type UserByAccessToken = Omit<UserLogin, 'accessToken'> & {
+    thongTinDatVe?: [];
+    loaiNguoiDung: {
+        maLoaiNguoiDung: 'KhachHang' | 'QuanTri';
+    };
+};

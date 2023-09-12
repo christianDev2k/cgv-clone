@@ -4,10 +4,20 @@ import { Link } from 'react-router-dom';
 import Dropdown from './Dropdown';
 import { PATH } from 'constant';
 import styles from './header.module.scss';
+import { useAuth } from 'hooks';
+import { useAppDispatch } from 'store';
+import { quanLyNguoiDungActions } from 'store/quanLyNguoiDungSlice';
 
 const cx = classNames.bind(styles);
 
 const Header = () => {
+    const { userLogin } = useAuth();
+    const dispatch = useAppDispatch();
+
+    const handleLogOut = () => () => {
+        dispatch(quanLyNguoiDungActions.logOutUser());
+    };
+
     return (
         <div>
             <div className="bg-[#fdfcf0]">
@@ -25,16 +35,29 @@ const Header = () => {
                                 VÉ CỦA TÔI
                             </a>
                         </li>
-                        <li className={cx('topbar-item')}>
-                            <img src="./images/header/icon_login25.png" alt="Login" />
-                            <Link to={PATH.login} className={cx('topbar-link')}>
-                                ĐĂNG NHẬP
-                            </Link>
-                            <span className="mx-1">/</span>
-                            <Link to="/register" className={cx('topbar-link')}>
-                                ĐĂNG KÝ
-                            </Link>
-                        </li>
+                        {!userLogin ? (
+                            <li className={cx('topbar-item')}>
+                                <img src="./images/header/icon_login25.png" alt="Login" />
+                                <Link to={PATH.login} className={cx('topbar-link')}>
+                                    ĐĂNG NHẬP
+                                </Link>
+                                <span className="mx-1">/</span>
+                                <Link to="/register" className={cx('topbar-link')}>
+                                    ĐĂNG KÝ
+                                </Link>
+                            </li>
+                        ) : (
+                            <li className={cx('topbar-item')}>
+                                <i className="fa-regular fa-user text-xl mr-1 text-gray-700"></i>
+                                <a href="..." className={cx('topbar-link', 'user-name')}>
+                                    XIN CHÀO, {userLogin.hoTen}!
+                                </a>
+                                <button className={cx('topbar-link')} onClick={handleLogOut()}>
+                                    Thoát
+                                </button>
+                            </li>
+                        )}
+
                         <li className={cx('topbar-item', 'lang-toggle')}>
                             <button className={cx('lang-toggle-btn', 'active')}>VN</button>
                             <button className={cx('lang-toggle-btn')}>EN</button>

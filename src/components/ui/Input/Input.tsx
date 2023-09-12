@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HTMLInputTypeAttribute } from 'react';
 import classNames from 'classnames/bind';
 import { UseFormRegister } from 'react-hook-form';
@@ -8,10 +9,10 @@ const cx = classNames.bind(styles);
 
 type InputProps = {
     label?: string;
-    id?: string;
     type?: HTMLInputTypeAttribute;
     placeholder?: string;
     error?: string;
+    id?: string;
     register?: UseFormRegister<any>;
 };
 

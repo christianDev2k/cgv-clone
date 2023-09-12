@@ -1,9 +1,16 @@
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 // ~
 import { Footer, Header } from 'components';
 import { Carousel } from 'antd';
+import { useAuth } from 'hooks';
 
 const AuthLayout = () => {
+    const { userLogin } = useAuth();
+
+    if (userLogin) {
+        return <Navigate to="/" />;
+    }
+
     return (
         <div>
             <Header />

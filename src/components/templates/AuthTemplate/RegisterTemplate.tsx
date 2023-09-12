@@ -2,13 +2,13 @@ import classNames from 'classnames/bind';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { toast } from 'react-toastify';
 // ~
 import { Button, Input } from 'components';
 import { RegisterSchema, RegisterSchemaType } from 'schema';
 import { quanLyNguoiDungService } from 'services';
 import { PATH } from 'constant';
-import { handleError } from 'utils';
+import { handleError, handleSuccess } from 'utils';
+
 import styles from './auth.module.scss';
 
 const cx = classNames.bind(styles);
@@ -28,16 +28,13 @@ const LoginTemplate = () => {
         try {
             await quanLyNguoiDungService.register(value);
 
-            toast.success('Đăng ký tài khoản thành công!');
+            handleSuccess('Đăng ký thành công!');
             navigate(PATH.login);
         } catch (err) {
             handleError(err);
         }
     };
 
-    toast.success('Đăng ký tài khoản thành công!');
-
-    toast.success('Đăng ký thành công!');
     return (
         <form className="pr-2" onSubmit={handleSubmit(onSubmit)}>
             <div className={cx('auth-title')}>

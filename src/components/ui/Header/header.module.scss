@@ -9,6 +9,11 @@
 
     .topbar-link {
         color: #666;
+        text-transform: uppercase;
+
+        &.user-name {
+            margin-right: var(--m-4);
+        }
     }
 
     .lang-toggle-btn {
@@ -25,6 +30,7 @@
     &.lang-toggle {
         border-radius: var(--radius-6);
         overflow: hidden;
+        margin-left: var(--m-8);
     }
 }
 
