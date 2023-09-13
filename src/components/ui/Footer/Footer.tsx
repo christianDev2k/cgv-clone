@@ -10,7 +10,7 @@ const Footer
             <div>
                 <div className="mx-auto border-y-2 border-black pt-2.5">
                     <div className="max-w-screen-lg mx-auto">
-                        <img src="./images/footer/brand-type-film-footer_ver2.png" alt="" />
+                        <img src="/images/footer/brand-type-film-footer_ver2.png" alt="" />
                     </div>
                 </div>
                 <div className="mx-auto border-b-2 border-black py-5">
@@ -65,7 +65,7 @@ const Footer
                                     <a href="..." className={cx('footer-social')}></a>
                                 </div>
                                 <div className="mt-3">
-                                    <img src="./images/footer/cong-thuong.png" alt="" />
+                                    <img src="/images/footer/cong-thuong.png" alt="" />
                                 </div>
                             </div>
                             <div>

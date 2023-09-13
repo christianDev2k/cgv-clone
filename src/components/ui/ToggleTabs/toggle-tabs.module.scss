@@ -1,0 +1,30 @@
+.toogle-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: var(--primary);
+    color: var(--white);
+    font-size: var(--fz-12);
+    padding: 2px var(--p-32);
+    position: relative;
+
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 18px;
+        height: 100%;
+    }
+
+    &::before {
+        background-image: url('/images/home/ribon_right.gif');
+        right: 0;
+    }
+
+    &::after {
+        background-image: url('/images/home/ribon_left_menu.gif');
+        left: 0;
+    }
+}

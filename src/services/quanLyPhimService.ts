@@ -8,6 +8,7 @@ const api = apiInstance({
 const quanLyPhimService = {
     LayDanhSachPhim: (query = '') => api.get<ApiResponse<Movie[]>>(`/LayDanhSachPhim${query}`),
     LayDanhSachBanner: () => api.get<ApiResponse<Banner[]>>('/LayDanhSachBanner'),
+    LayThongTinPhim: (id: string) => api.get<ApiResponse<Movie>>(`/LayThongTinPhim?MaPhim=${id}`),
 };
 
 export default quanLyPhimService;

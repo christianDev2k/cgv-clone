@@ -4,6 +4,7 @@ import { CommingSoon, Home, Login, Register } from 'pages';
 import { AuthLayout, MainLayout } from 'components';
 import { PATH } from 'constant';
 import { NowShowing } from 'pages';
+import { MovieDetail } from 'pages';
 
 const router: RouteObject[] = [
     {
@@ -33,6 +34,10 @@ const router: RouteObject[] = [
             {
                 path: PATH.commingSoon,
                 element: <CommingSoon />,
+            },
+            {
+                path: PATH.movieDetail,
+                element: <MovieDetail />,
             },
         ],
     },

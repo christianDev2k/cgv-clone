@@ -24,20 +24,20 @@ const Header = () => {
                 <div className="max-w-screen-lg mx-auto py-1">
                     <ul className="flex justify-end items-center">
                         <li className={cx('topbar-item')}>
-                            <img src="./images/header/icon_promotion25.png" alt="Tin mới" />
+                            <img src="/images/header/icon_promotion25.png" alt="Tin mới" />
                             <a href="#" className={cx('topbar-link')}>
                                 TIN MỚI & ƯU ĐÃI
                             </a>
                         </li>
                         <li className={cx('topbar-item')}>
-                            <img src="./images/header/icon_ticket25.png" alt="Vé của tôi" />
+                            <img src="/images/header/icon_ticket25.png" alt="Vé của tôi" />
                             <a href="" className={cx('topbar-link')}>
                                 VÉ CỦA TÔI
                             </a>
                         </li>
                         {!userLogin ? (
                             <li className={cx('topbar-item')}>
-                                <img src="./images/header/icon_login25.png" alt="Login" />
+                                <img src="/images/header/icon_login25.png" alt="Login" />
                                 <Link to={PATH.login} className={cx('topbar-link')}>
                                     ĐĂNG NHẬP
                                 </Link>
@@ -68,7 +68,7 @@ const Header = () => {
             <div className={cx('header-main')}>
                 <div className="max-w-screen-lg mx-auto flex items-center justify-between">
                     <Link to="/" className="logo py-9">
-                        <img src="./logo/cgvlogo.png" alt="" />
+                        <img src="/logo/cgvlogo.png" alt="" />
                     </Link>
                     <ul className="navbar flex">
                         <li className={cx('navbar-item')}>
@@ -96,12 +96,12 @@ const Header = () => {
                     <div className="flex items-center">
                         <div>
                             <a href="...">
-                                <img src="./images/header/kenhcine.gif" alt="" />
+                                <img src="/images/header/kenhcine.gif" alt="" />
                             </a>
                         </div>
                         <div>
                             <a href="...">
-                                <img src="./images/header/mua-ve_ngay.png" alt="" />
+                                <img src="/images/header/mua-ve_ngay.png" alt="" />
                             </a>
                         </div>
                     </div>
@@ -115,12 +115,12 @@ export default Header;
 
 const PhimSubTitle = [
     {
-        title: 'Phim sắp chiếu',
-        path: PATH.commingSoon,
-    },
-    {
         title: 'Phim đang chiếu',
         path: PATH.nowShowing,
+    },
+    {
+        title: 'Phim sắp chiếu',
+        path: PATH.commingSoon,
     },
 ];
 

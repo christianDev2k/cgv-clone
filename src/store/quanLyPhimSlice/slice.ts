@@ -1,23 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Banner, Movie } from 'types';
-import { getBannerListThunk, getMovieListThunk, getNowShowingListThunk } from './thunk';
+import { GetInforMovieThunk, getBannerListThunk, getMovieListThunk } from './thunk';
 
 type initialStateProps = {
     movieList: Movie[];
-    nowShowingList: Movie[];
+    movieDetail: Movie;
     bannerList: Banner[];
     isFetchingMovieList: boolean;
     isFetchingBannerList: boolean;
-    isFetchingNowShowingList: boolean;
+    isFetchingmovieDetailt: boolean;
 };
 
 const initialState: initialStateProps = {
     movieList: undefined,
     bannerList: undefined,
-    nowShowingList: undefined,
+    movieDetail: undefined,
     isFetchingMovieList: false,
     isFetchingBannerList: false,
-    isFetchingNowShowingList: false,
+    isFetchingmovieDetailt: false,
 };
 
 const quanLyPhimSlice = createSlice({
@@ -50,16 +50,16 @@ const quanLyPhimSlice = createSlice({
                 state.isFetchingBannerList = false;
             })
 
-            // Now showing
-            .addCase(getNowShowingListThunk.pending, state => {
-                state.isFetchingNowShowingList = true;
+            // Movie Detail
+            .addCase(GetInforMovieThunk.pending, state => {
+                state.isFetchingmovieDetailt = true;
             })
-            .addCase(getNowShowingListThunk.fulfilled, (state, { payload }) => {
-                state.isFetchingNowShowingList = false;
-                state.nowShowingList = payload;
+            .addCase(GetInforMovieThunk.fulfilled, (state, { payload }) => {
+                state.movieDetail = payload;
+                state.isFetchingmovieDetailt = false;
             })
-            .addCase(getNowShowingListThunk.rejected, state => {
-                state.isFetchingNowShowingList = false;
+            .addCase(GetInforMovieThunk.rejected, state => {
+                state.isFetchingmovieDetailt = false;
             });
     },
 });

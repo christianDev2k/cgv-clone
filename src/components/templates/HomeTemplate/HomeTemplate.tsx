@@ -5,7 +5,7 @@ import { CarouselRef } from 'antd/es/carousel';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import 'swiper/css';
 // ~
-import { FilmSlide } from 'components';
+import { FilmSlide, ToggleTabs } from 'components';
 import styles from './home.module.scss';
 import { useAppDispatch } from 'store';
 import { getBannerListThunk, getMovieListThunk } from 'store/quanLyPhimSlice';
@@ -22,8 +22,6 @@ const HomeTemplate = () => {
         dispatch(getMovieListThunk());
         dispatch(getBannerListThunk());
     }, [dispatch]);
-
-    console.log(movieList);
 
     return (
         <div className="py-8 bg-[#fdfcf0]">
@@ -73,9 +71,9 @@ const HomeTemplate = () => {
                     </div>
                     <div>
                         <Swiper slidesPerView={4} spaceBetween={5}>
-                            {movieList?.map((movie, index) => (
+                            {movieList?.slice(0, 10)?.map((movie, index) => (
                                 <SwiperSlide key={index}>
-                                    <FilmSlide tenPhim={movie.tenPhim} hinhAnh={movie.hinhAnh} />
+                                    <FilmSlide movie={movie} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
@@ -87,20 +85,9 @@ const HomeTemplate = () => {
                     <div className={cx('title', 'event')}>
                         <h2>event</h2>
                     </div>
-                    <div className="flex justify-center">
-                        <ul className={cx('toogle-tabs')}>
-                            <li className="flex items-center">
-                                <img src="/images/home/ico_finger.png" alt="" className="w-9 h-3.5" />
-                                <a href="..." className="ml-3">
-                                    Thành Viên CGV
-                                </a>
-                            </li>
-                            <li className="flex items-center">
-                                <img src="/images/home/bg_tebmenu-line.gif" alt="" className="px-3 h-4" />
-                                <a href="...">Tin Mới &amp; Ưu Đãi</a>
-                            </li>
-                        </ul>
-                    </div>
+
+                    <ToggleTabs title_1="Thành viên CGV" title_2="Tin Mới &amp; Ưu Đãi" />
+
                     <ul className="flex mt-4">
                         {EventImgs.map((item, index) => (
                             <li key={index} className="grow px-1">
