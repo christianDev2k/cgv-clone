@@ -46,7 +46,6 @@
 
 .carousel {
     background-image: url('/images/home/bg_c_bricks.png');
-    margin-top: var(--m-16);
 }
 
 .carousel-arr {
@@ -131,3 +130,19 @@
     }
 }
 
+@media screen and (max-width: 639.98px) {
+    .title {
+        height: 60px;
+        margin: var(--m-20) 0;
+
+        &.movie h2 {
+            width: 300px;
+            background: url('/images/home/h3_movie_selection.gif') no-repeat scroll center center / 280px 32px #fdfcf0;
+        }
+
+        &.event h2 {
+            width: 130px;
+            background: url('/images/home/h3_event.gif') no-repeat scroll center center / 110px 32px #fdfcf0;
+        }
+    }
+}

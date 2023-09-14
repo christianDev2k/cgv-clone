@@ -31,6 +31,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                                 linkHoverColor: 'none',
                                 separatorMargin: 0,
                             },
+                            Menu: {
+                                itemPaddingInline: 0,
+                                itemMarginInline: 0,
+                                itemBorderRadius: 0,
+                                itemHoverBg: '#f4f4f4',
+                            },
                         },
                     }}
                 >

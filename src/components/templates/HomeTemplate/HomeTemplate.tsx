@@ -24,10 +24,10 @@ const HomeTemplate = () => {
     }, [dispatch]);
 
     return (
-        <div className="py-8 bg-[#fdfcf0]">
+        <div className="pb-8 bg-[#fdfcf0]">
             {/* Carousel  */}
-            <div>
-                <div className="max-w-screen-lg mx-auto">
+            <>
+                <div className="max-w-screen-lg mx-auto pt-8 pb-4 hidden lg:block">
                     <ul className="flex">
                         {homeSection.map((item, index) => (
                             <li key={index} className={cx('home-sect-item')}>
@@ -42,7 +42,7 @@ const HomeTemplate = () => {
                         <Carousel ref={ref} autoplay dots style={{ border: '1px solid #fff' }}>
                             {bannerList?.map(item => (
                                 <div key={item.maBanner}>
-                                    <img src={item.hinhAnh} alt="" className="w-full h-[450px]" />
+                                    <img src={item.hinhAnh} alt="" className="w-full h-72 sm:h-[450px]" />
                                 </div>
                             ))}
                         </Carousel>
@@ -60,35 +60,40 @@ const HomeTemplate = () => {
                         ></button>
                     </div>
                 </div>
-            </div>
+            </>
 
             {/* Content  */}
-            <div className="max-w-screen-lg mx-auto">
+            <div className="max-w-screen-lg mx-auto px-2 lg:px-0">
                 {/* Movie section  */}
+                <div className={cx('title', 'movie')}>
+                    <h2>movie selection</h2>
+                </div>
                 <div>
-                    <div className={cx('title', 'movie')}>
-                        <h2>movie selection</h2>
-                    </div>
-                    <div>
-                        <Swiper slidesPerView={4} spaceBetween={5}>
-                            {movieList?.slice(0, 10)?.map((movie, index) => (
-                                <SwiperSlide key={index}>
-                                    <FilmSlide movie={movie} />
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    </div>
+                    <Swiper
+                        breakpoints={{
+                            0: { slidesPerView: 2 },
+                            768: { slidesPerView: 3 },
+                            1024: { slidesPerView: 4 },
+                        }}
+                        spaceBetween={5}
+                    >
+                        {movieList?.slice(0, 10)?.map((movie, index) => (
+                            <SwiperSlide key={index}>
+                                <FilmSlide movie={movie} />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
 
                 {/* Event section  */}
-                <div className="border-b-[3px] border-black pb-8">
+                <div className="border-b-[3px] border-black pb-8 px-2 lg:px-0">
                     <div className={cx('title', 'event')}>
                         <h2>event</h2>
                     </div>
 
                     <ToggleTabs title_1="Thành viên CGV" title_2="Tin Mới &amp; Ưu Đãi" />
 
-                    <ul className="flex mt-4">
+                    <ul className="grid grid-cols-2 gap-y-2 md:gap-y-0 md:grid-cols-4 mt-4">
                         {EventImgs.map((item, index) => (
                             <li key={index} className="grow px-1">
                                 <a href="">
@@ -100,9 +105,9 @@ const HomeTemplate = () => {
                 </div>
 
                 {/* Poster  */}
-                <div className="border-b-[3px] border-black pb-4 mt-8">
+                <div className="border-b-[3px] border-black pb-4 mt-4 sm:mt-8">
                     <a href="" className="block">
-                        <div className="border-[3px] border-black w-1/2 p-1">
+                        <div className="border-[3px] border-black w-2/3 md:w-1/2 p-1">
                             <img src="/images/home/u22_072023_496x267.png" alt="" className="hover:opacity-75 w-full" />
                         </div>
                     </a>

@@ -108,3 +108,76 @@
         right: -10px;
     }
 }
+
+@media screen and (max-width: 767.98px) {
+    .header-main {
+        background: var(--body-color);
+    }
+
+    .nav-icon {
+        width: 30px;
+        height: 30px;
+        margin: 0 auto;
+        cursor: pointer;
+
+        &.bar-icon {
+            background-image: url('/images/header/mobile/icon_sprite.png');
+            background-repeat: no-repeat;
+            background-position: 4px 6px;
+
+            &:hover {
+                background-position: -46px 6px;
+            }
+        }
+
+        &.ticket-icon {
+            background-image: url('/images/header/mobile/icon_ticket25.png');
+            background-repeat: no-repeat;
+            background-position: 2px 2px;
+        }
+
+        &.user-icon {
+            background-image: url('/images/header/mobile/icon_sprite.png');
+            background-repeat: no-repeat;
+            background-position: 5px -45px;
+
+            &:hover {
+                background-position: -45px -45px;
+            }
+        }
+
+        &.lang-icon {
+            line-height: 30px;
+            font-size: 16px;
+            color: #898987;
+        }
+    }
+}
+
+.nav-mobile {
+    background-color: #ededed !important;
+
+    .sub-label {
+        border-bottom: 1px solid #ccc;
+        text-transform: uppercase;
+        font-weight: var(--fw-7);
+        color: var(--text-nav-mobile);
+    }
+    .children {
+        text-transform: capitalize;
+        font-weight: var(--fw-7);
+        color: var(--text-nav-mobile);
+    }
+
+    .sub-user {
+        padding: var(--p-8) var(--p-24);
+        border-bottom: 1px solid #ccc;
+        color: var(--text-nav-mobile);
+        cursor: pointer;
+
+        &:hover {
+            color: var(--primary);
+            background-color: #f4f4f4;
+        }
+    }
+}

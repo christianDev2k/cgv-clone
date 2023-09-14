@@ -3,19 +3,18 @@ import styles from './footer.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Footer
- = () => {
+const Footer = () => {
     return (
         <footer className="bg-[#fdfcf0]">
             <div>
                 <div className="mx-auto border-y-2 border-black pt-2.5">
-                    <div className="max-w-screen-lg mx-auto">
+                    <div className="max-w-screen-lg mx-auto px-2 lg:px-0">
                         <img src="/images/footer/brand-type-film-footer_ver2.png" alt="" />
                     </div>
                 </div>
                 <div className="mx-auto border-b-2 border-black py-5">
-                    <div className="max-w-screen-lg mx-auto">
-                        <div className="grid grid-cols-4">
+                    <div className="max-w-screen-lg mx-auto px-2 lg:px-0">
+                        <div className="grid grid-cols-2  sm:grid-cols-3 gap-y-2 lg:grid-cols-4">
                             <div>
                                 <h4 className={cx('footer-title')}>CGV Việt Nam</h4>
                                 <ul>
@@ -87,9 +86,11 @@ const Footer
                 </div>
             </div>
             <div className="pt-4">
-                <div className="max-w-screen-lg mx-auto mb-4">
+                <div className="max-w-screen-lg mx-auto mb-4 px-2 lg:px-0">
                     <div className="flex items-center">
-                        <div className={cx('footer-logo')}></div>
+                        <div>
+                            <div className={cx('footer-logo')}></div>
+                        </div>
                         <div className="grow text-[#636363]">
                             <h4 className="font-bold mb-2">CÔNG TY TNHH CJ CGV VIETNAM</h4>
                             <div className="text-sm">
@@ -110,5 +111,4 @@ const Footer
     );
 };
 
-export default Footer
-;
+export default Footer;

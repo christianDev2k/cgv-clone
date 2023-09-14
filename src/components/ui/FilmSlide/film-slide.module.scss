@@ -10,6 +10,8 @@
         width: 100%;
         transition: all 0.25s;
         background-image: url('/images/home/bg-transparent-grey.png');
+        background-repeat: no-repeat;
+        background-size: cover;
 
         .content {
             position: absolute;
