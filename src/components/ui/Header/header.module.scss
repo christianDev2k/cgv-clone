@@ -47,6 +47,10 @@
     margin-top: var(--m-32);
     position: relative;
 
+    .title {
+        cursor: pointer;
+    }
+
     .dropdown {
         position: absolute;
         top: calc(100% + 4px);

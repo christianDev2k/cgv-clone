@@ -19,7 +19,7 @@ const Header = () => {
     const [isOpenNavbar, setIsOpenNavbar] = useState<boolean>(false);
     const [isOpenNavUser, setIsOpenNavUser] = useState<boolean>(false);
 
-    const handleLogOut = () => () => {
+    const handleLogOut = () => {
         dispatch(quanLyNguoiDungActions.logOutUser());
     };
 
@@ -64,57 +64,105 @@ const Header = () => {
             children: [
                 {
                     key: 'tat-ca-rap',
-                    label: <p className={cx('children')}>Tất cả các rạp</p>,
+                    label: (
+                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                            Tất cả các rạp
+                        </p>
+                    ),
                 },
                 {
                     key: 'rap-dat-biet',
-                    label: <p className={cx('children')}>Rạp đặc biệt</p>,
+                    label: (
+                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                            Rạp đặc biệt
+                        </p>
+                    ),
                 },
                 {
                     key: 'rap-3d',
-                    label: <p className={cx('children')}>Rạp 3D</p>,
+                    label: (
+                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                            Rạp 3D
+                        </p>
+                    ),
                 },
             ],
         },
         {
             key: 3,
-            label: <div className={cx('sub-label')}>Thành viên</div>,
+            label: (
+                <div className={cx('sub-label')} onClick={() => navigate(PATH.updatingPage)}>
+                    Thành viên
+                </div>
+            ),
             children: [
                 {
                     key: 'tai-khoan-cgv',
-                    label: <p className={cx('children')}>Tài khoản CGV</p>,
+                    label: (
+                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                            Tài khoản CGV
+                        </p>
+                    ),
                 },
                 {
                     key: 'quyen-loi',
-                    label: <p className={cx('children')}>Quyền lợi</p>,
+                    label: (
+                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                            Quyền lợi
+                        </p>
+                    ),
                 },
             ],
         },
         {
             key: 4,
-            label: <div className={cx('sub-label')}>Cultureplex</div>,
+            label: (
+                <div className={cx('sub-label')} onClick={() => navigate(PATH.updatingPage)}>
+                    Cultureplex
+                </div>
+            ),
             children: [
                 {
                     key: 'quay-online',
-                    label: <p className={cx('children')}>Quầy online</p>,
+                    label: (
+                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                            Quầy online
+                        </p>
+                    ),
                 },
                 {
                     key: 'e-cgv',
-                    label: <p className={cx('children')}>E-CGV</p>,
+                    label: (
+                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                            E-CGV
+                        </p>
+                    ),
                 },
                 {
                     key: 'cgv-egift',
-                    label: <p className={cx('children')}>CGV EGift</p>,
+                    label: (
+                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                            CGV EGift
+                        </p>
+                    ),
                 },
                 {
                     key: 'cgv-rules',
-                    label: <p className={cx('children')}>CGV Rules</p>,
+                    label: (
+                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                            CGV Rules
+                        </p>
+                    ),
                 },
             ],
         },
         {
             key: 5,
-            label: <div className={cx('sub-label')}>Tuyển dụng</div>,
+            label: (
+                <div className={cx('sub-label')} onClick={() => navigate(PATH.updatingPage)}>
+                    Tuyển dụng
+                </div>
+            ),
         },
     ];
 
@@ -125,9 +173,9 @@ const Header = () => {
                     <ul className="flex justify-end items-center">
                         <li className={cx('topbar-item')}>
                             <img src="/images/header/icon_promotion25.png" alt="Tin mới" />
-                            <a href="#" className={cx('topbar-link')}>
+                            <Link to={PATH.updatingPage} className={cx('topbar-link')}>
                                 TIN MỚI & ƯU ĐÃI
-                            </a>
+                            </Link>
                         </li>
                         <li className={cx('topbar-item')}>
                             <img src="/images/header/icon_ticket25.png" alt="Vé của tôi" />
@@ -152,15 +200,19 @@ const Header = () => {
                                 <a href="..." className={cx('topbar-link', 'user-name')}>
                                     XIN CHÀO, {userLogin.hoTen}!
                                 </a>
-                                <button className={cx('topbar-link')} onClick={handleLogOut()}>
+                                <button className={cx('topbar-link')} onClick={handleLogOut}>
                                     Thoát
                                 </button>
                             </li>
                         )}
 
                         <li className={cx('topbar-item', 'lang-toggle')}>
-                            <button className={cx('lang-toggle-btn', 'active')}>VN</button>
-                            <button className={cx('lang-toggle-btn')}>EN</button>
+                            <button className={cx('lang-toggle-btn', 'active')} onClick={() => navigate(PATH.home)}>
+                                VN
+                            </button>
+                            <button className={cx('lang-toggle-btn')} onClick={() => navigate(PATH.updatingPage)}>
+                                EN
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -174,37 +226,37 @@ const Header = () => {
                     {/* Nav PC  */}
                     <ul className="navbar md:flex hidden">
                         <li className={cx('navbar-item')}>
-                            <a href="...">PHIM</a>
+                            <div className={cx('title')}>PHIM</div>
                             <Dropdown navList={PhimSubTitle} />
                         </li>
                         <li className={cx('navbar-item')}>
-                            <a href="...">RẠP CGV</a>
+                            <div className={cx('title')}>RẠP CGV</div>
                             <Dropdown navList={RapSubTitle} />
                         </li>
 
                         <li className={cx('navbar-item')}>
-                            <a href="...">THÀNH VIÊN</a>
+                            <div className={cx('title')}>THÀNH VIÊN</div>
                             <Dropdown navList={MemberSubTitle} />
                         </li>
                         <li className={cx('navbar-item')}>
-                            <a href="...">CULTUREPLEX</a>
+                            <div className={cx('title')}>CULTUREPLEX</div>
                             <Dropdown navList={PlexSubTitle} />
                         </li>
                         <li className={cx('navbar-item', 'carrer')}>
-                            <a href="...">TUYỂN DỤNG</a>
+                            <div className={cx('title')}>TUYỂN DỤNG</div>
                             <Dropdown navList={CarrerSubTitle} />
                         </li>
                     </ul>
                     <div className="lg:flex items-center hidden">
                         <div>
-                            <a href="...">
+                            <Link to={PATH.updatingPage}>
                                 <img src="/images/header/kenhcine.gif" alt="" />
-                            </a>
+                            </Link>
                         </div>
                         <div>
-                            <a href="...">
+                            <Link to={PATH.updatingPage}>
                                 <img src="/images/header/mua-ve_ngay.png" alt="" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -256,12 +308,20 @@ const Header = () => {
                         <Link to={PATH.login}>
                             <li className={cx('sub-user')}>TÀI KHOẢN</li>{' '}
                         </Link>
-                        <Link to={PATH.register}>
-                            <li className={cx('sub-user')}>ĐĂNG KÝ</li>{' '}
-                        </Link>
-                        <Link to={PATH.login}>
-                            <li className={cx('sub-user')}>ĐĂNG NHẬP</li>{' '}
-                        </Link>
+                        {!userLogin ? (
+                            <div>
+                                <Link to={PATH.register}>
+                                    <li className={cx('sub-user')}>ĐĂNG KÝ</li>{' '}
+                                </Link>
+                                <Link to={PATH.login}>
+                                    <li className={cx('sub-user')}>ĐĂNG NHẬP</li>{' '}
+                                </Link>
+                            </div>
+                        ) : (
+                            <li className={cx('sub-user')} onClick={handleLogOut}>
+                                THOÁT
+                            </li>
+                        )}
                     </ul>
                 </div>
             )}
@@ -285,12 +345,15 @@ const PhimSubTitle = [
 const RapSubTitle = [
     {
         title: 'Tất cả các rạp',
+        path: PATH.updatingPage,
     },
     {
         title: 'Rạp đặc biệt',
+        path: PATH.updatingPage,
     },
     {
         title: 'Rạp 3D',
+        path: PATH.updatingPage,
     },
 ];
 
@@ -300,35 +363,44 @@ const MemberSubTitle = [
     },
     {
         title: 'Quyền lợi',
+        path: PATH.updatingPage,
     },
 ];
 
 const PlexSubTitle = [
     {
         title: 'Quầy Online',
+        path: PATH.updatingPage,
     },
     {
         title: 'Thuê rạp & vé nhóm',
+        path: PATH.updatingPage,
     },
     {
         title: 'E-CGV',
+        path: PATH.updatingPage,
     },
     {
         title: 'CGV EGift',
+        path: PATH.updatingPage,
     },
     {
         title: 'CGV Rules',
+        path: PATH.updatingPage,
     },
 ];
 
 const CarrerSubTitle = [
     {
         title: 'Tuyển dụng',
+        path: PATH.updatingPage,
     },
     {
         title: 'Khối văn phòng',
+        path: PATH.updatingPage,
     },
     {
         title: 'Khối cụm rạp',
+        path: PATH.updatingPage,
     },
 ];

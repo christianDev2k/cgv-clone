@@ -4,12 +4,14 @@ import { Carousel } from 'antd';
 import { CarouselRef } from 'antd/es/carousel';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import 'swiper/css';
+import { Link } from 'react-router-dom';
 // ~
 import { FilmSlide, ToggleTabs } from 'components';
 import styles from './home.module.scss';
 import { useAppDispatch } from 'store';
 import { getBannerListThunk, getMovieListThunk } from 'store/quanLyPhimSlice';
 import { useMovie } from 'hooks';
+import { PATH } from 'constant';
 
 const cx = classNames.bind(styles);
 
@@ -31,7 +33,7 @@ const HomeTemplate = () => {
                     <ul className="flex">
                         {homeSection.map((item, index) => (
                             <li key={index} className={cx('home-sect-item')}>
-                                <a href="..." className={cx('home-sect-link', item.class)}></a>
+                                <Link to={item?.path} className={cx('home-sect-link', item.class)}></Link>
                             </li>
                         ))}
                     </ul>
@@ -96,9 +98,9 @@ const HomeTemplate = () => {
                     <ul className="grid grid-cols-2 gap-y-2 md:gap-y-0 md:grid-cols-4 mt-4">
                         {EventImgs.map((item, index) => (
                             <li key={index} className="grow px-1">
-                                <a href="">
+                                <div>
                                     <img src={item.path} alt="" className="w-full" />
-                                </a>
+                                </div>
                             </li>
                         ))}
                     </ul>
@@ -106,11 +108,9 @@ const HomeTemplate = () => {
 
                 {/* Poster  */}
                 <div className="border-b-[3px] border-black pb-4 mt-4 sm:mt-8">
-                    <a href="" className="block">
-                        <div className="border-[3px] border-black w-2/3 md:w-1/2 p-1">
-                            <img src="/images/home/u22_072023_496x267.png" alt="" className="hover:opacity-75 w-full" />
-                        </div>
-                    </a>
+                    <div className="border-[3px] border-black w-2/3 md:w-1/2 p-1">
+                        <img src="/images/home/u22_072023_496x267.png" alt="" className="hover:opacity-75 w-full" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -120,24 +120,31 @@ const HomeTemplate = () => {
 const homeSection = [
     {
         class: 'heater',
+        path: PATH.updatingPage,
     },
     {
         class: 'now-sh',
+        path: PATH.nowShowing,
     },
     {
         class: 'special',
+        path: PATH.updatingPage,
     },
     {
         class: 'event',
+        path: PATH.updatingPage,
     },
     {
         class: 'contact',
+        path: PATH.updatingPage,
     },
     {
         class: 'discount',
+        path: PATH.updatingPage,
     },
     {
         class: 'register',
+        path: PATH.register,
     },
 ];
 

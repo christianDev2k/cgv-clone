@@ -1,10 +1,8 @@
 import { RouteObject } from 'react-router-dom';
 // ~
-import { CommingSoon, Home, Login, Register } from 'pages';
+import { CommingSoon, Home, Login, Register, NowShowing, MovieDetail, UpdatingPage } from 'pages';
 import { AuthLayout, MainLayout } from 'components';
 import { PATH } from 'constant';
-import { NowShowing } from 'pages';
-import { MovieDetail } from 'pages';
 
 const router: RouteObject[] = [
     {
@@ -38,6 +36,10 @@ const router: RouteObject[] = [
             {
                 path: PATH.movieDetail,
                 element: <MovieDetail />,
+            },
+            {
+                path: PATH.updatingPage,
+                element: <UpdatingPage />,
             },
         ],
     },

@@ -1,4 +1,6 @@
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
+import { PATH } from 'constant';
 import styles from './footer.module.scss';
 
 const cx = classNames.bind(styles);
@@ -19,19 +21,19 @@ const Footer = () => {
                                 <h4 className={cx('footer-title')}>CGV Việt Nam</h4>
                                 <ul>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Giới Thiệu</a>
+                                        <Link to={PATH.updatingPage}>Giới Thiệu</Link>
                                     </li>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Tiện Ích Online</a>
+                                        <Link to={PATH.updatingPage}>Tiện Ích Online</Link>
                                     </li>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Thẻ Quà Tặng</a>
+                                        <Link to={PATH.updatingPage}>Thẻ Quà Tặng</Link>
                                     </li>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Tuyển Dụng</a>
+                                        <Link to={PATH.updatingPage}>Tuyển Dụng</Link>
                                     </li>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Liên Hệ Quảng Cáo CGV</a>
+                                        <Link to={PATH.updatingPage}>Liên Hệ Quảng Cáo CGV</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -39,29 +41,38 @@ const Footer = () => {
                                 <h4 className={cx('footer-title')}>Điều khoản sử dụng</h4>
                                 <ul>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Điều Khoản Chung</a>
+                                        <Link to={PATH.updatingPage}>Điều Khoản Chung</Link>
                                     </li>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Điều Khoản Giao Dịch</a>
+                                        <Link to={PATH.updatingPage}>Điều Khoản Giao Dịch</Link>
                                     </li>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Chính Sách Thanh Toán</a>
+                                        <Link to={PATH.updatingPage}>Chính Sách Thanh Toán</Link>
                                     </li>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Chính Sách Bảo Mật</a>
+                                        <Link to={PATH.updatingPage}>Chính Sách Bảo Mật</Link>
                                     </li>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Câu Hỏi Thường Gặp</a>
+                                        <Link to={PATH.updatingPage}>Câu Hỏi Thường Gặp</Link>
                                     </li>
                                 </ul>
                             </div>
                             <div>
                                 <h4 className={cx('footer-title')}>Kết nối với chúng tôi</h4>
                                 <div className="flex mt-1">
-                                    <a href="..." className={cx('footer-social', 'facebook')}></a>
-                                    <a href="..." className={cx('footer-social', 'youtube')}></a>
-                                    <a href="..." className={cx('footer-social', 'instagram')}></a>
-                                    <a href="..." className={cx('footer-social')}></a>
+                                    <a
+                                        href="https://www.facebook.com/cgvcinemavietnam"
+                                        className={cx('footer-social', 'facebook')}
+                                    ></a>
+                                    <a
+                                        href="https://www.youtube.com/@CGVVietnam"
+                                        className={cx('footer-social', 'youtube')}
+                                    ></a>
+                                    <a
+                                        href="https://www.instagram.com/cgvcinemasvietnam/"
+                                        className={cx('footer-social', 'instagram')}
+                                    ></a>
+                                    <a href="https://zalo.me/1884424922722396289" className={cx('footer-social')}></a>
                                 </div>
                                 <div className="mt-3">
                                     <img src="/images/footer/cong-thuong.png" alt="" />
@@ -71,13 +82,13 @@ const Footer = () => {
                                 <h4 className={cx('footer-title')}>Chăm sóc khách hàng</h4>
                                 <ul>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Hotline: 1900 6017</a>
+                                        <p>Hotline: 1900 6017</p>
                                     </li>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Giờ làm việc: 8:00 - 22:00 (Tất cả các ngày bao gồm cả Lễ Tết)</a>
+                                        <p>Giờ làm việc: 8:00 - 22:00 (Tất cả các ngày bao gồm cả Lễ Tết)</p>
                                     </li>
                                     <li className={cx('footer-item')}>
-                                        <a href="...">Email hỗ trợ: hoidap@cgv.vn</a>
+                                        <p>Email hỗ trợ: hoidap@cgv.vn</p>
                                     </li>
                                 </ul>
                             </div>

@@ -5,6 +5,7 @@ const PATH = {
     nowShowing: '/now-showing',
     commingSoon: '/comming-soon',
     movieDetail: '/:id/movie-detail',
+    updatingPage: '/updating',
 };
 
 export default PATH;

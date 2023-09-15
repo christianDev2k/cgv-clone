@@ -14,13 +14,11 @@ const ToggleTabs = (props: TitleProps) => {
             <ul className={cx('toogle-tabs')}>
                 <li className="flex items-center">
                     <img src="/images/home/ico_finger.png" alt="" className="w-7 h-3" />
-                    <a href="..." className="font-bold ml-3">
-                        {props.title_1}
-                    </a>
+                    <div className="font-bold ml-3">{props.title_1}</div>
                 </li>
                 <li className="flex items-center">
                     <img src="/images/home/bg_tebmenu-line.gif" alt="" className="px-3 h-4" />
-                    <a href="...">{props.title_2}</a>
+                    <div>{props.title_2}</div>
                 </li>
             </ul>
         </div>
