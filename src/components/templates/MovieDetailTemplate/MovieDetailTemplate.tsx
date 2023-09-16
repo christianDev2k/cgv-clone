@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import { Breadcrumb } from 'antd';
 import { Link, useParams } from 'react-router-dom';
 // ~
 import { PATH } from 'constant';
 import { useMovie } from 'hooks';
 import { useAppDispatch } from 'store';
 import { GetInforMovieThunk } from 'store/quanLyPhimSlice';
-import { BuyTicketButton, LikeButton, ToggleTabs } from 'components';
+import { BuyTicketButton, ToggleTabs, Breadcrumb, Tag } from 'components';
+import { LikeFilled } from '@ant-design/icons';
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -54,7 +54,11 @@ const MovieDetail = () => {
                             <div className="card relative pb-14">
                                 <img src={movie?.hinhAnh} alt={movie?.biDanh} className="w-full h-[290px]" />
                                 <div className="flex justify-between items-center absolute bottom-0 left-0 w-full">
-                                    <LikeButton />
+                                    <div className="cursor-pointer">
+                                        <Tag icon={<LikeFilled />} color="#1877f2">
+                                            Like
+                                        </Tag>
+                                    </div>
                                     <BuyTicketButton />
                                 </div>
                             </div>

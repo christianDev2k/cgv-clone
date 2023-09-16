@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { Link, useNavigate } from 'react-router-dom';
-import { Menu } from 'antd';
+import { Menu } from 'components';
 // ~
 import Dropdown from './Dropdown';
 import { PATH } from 'constant';
@@ -23,6 +23,11 @@ const Header = () => {
         dispatch(quanLyNguoiDungActions.logOutUser());
     };
 
+    const handleNavMobile = (path: string, callback: (value: boolean) => void) => () => {
+        navigate(path);
+        callback(false);
+    };
+
     const phim_menu = [
         {
             key: 1,
@@ -33,10 +38,7 @@ const Header = () => {
                     label: (
                         <p
                             className={cx('children', 'pointer')}
-                            onClick={() => {
-                                navigate(PATH.nowShowing);
-                                setIsOpenNavbar(false);
-                            }}
+                            onClick={handleNavMobile(PATH.nowShowing, setIsOpenNavbar)}
                         >
                             Phim đang chiếu
                         </p>
@@ -47,10 +49,7 @@ const Header = () => {
                     label: (
                         <p
                             className={cx('children', 'pointer')}
-                            onClick={() => {
-                                navigate(PATH.commingSoon);
-                                setIsOpenNavbar(false);
-                            }}
+                            onClick={handleNavMobile(PATH.commingSoon, setIsOpenNavbar)}
                         >
                             Phim sắp chiếu
                         </p>
@@ -65,7 +64,7 @@ const Header = () => {
                 {
                     key: 'tat-ca-rap',
                     label: (
-                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                        <p className={cx('children')} onClick={handleNavMobile(PATH.updatingPage, setIsOpenNavbar)}>
                             Tất cả các rạp
                         </p>
                     ),
@@ -73,7 +72,7 @@ const Header = () => {
                 {
                     key: 'rap-dat-biet',
                     label: (
-                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                        <p className={cx('children')} onClick={handleNavMobile(PATH.updatingPage, setIsOpenNavbar)}>
                             Rạp đặc biệt
                         </p>
                     ),
@@ -81,7 +80,7 @@ const Header = () => {
                 {
                     key: 'rap-3d',
                     label: (
-                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                        <p className={cx('children')} onClick={handleNavMobile(PATH.updatingPage, setIsOpenNavbar)}>
                             Rạp 3D
                         </p>
                     ),
@@ -90,24 +89,12 @@ const Header = () => {
         },
         {
             key: 3,
-            label: (
-                <div className={cx('sub-label')} onClick={() => navigate(PATH.updatingPage)}>
-                    Thành viên
-                </div>
-            ),
+            label: <div className={cx('sub-label')}>Thành viên</div>,
             children: [
-                {
-                    key: 'tai-khoan-cgv',
-                    label: (
-                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
-                            Tài khoản CGV
-                        </p>
-                    ),
-                },
                 {
                     key: 'quyen-loi',
                     label: (
-                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                        <p className={cx('children')} onClick={handleNavMobile(PATH.updatingPage, setIsOpenNavbar)}>
                             Quyền lợi
                         </p>
                     ),
@@ -116,16 +103,12 @@ const Header = () => {
         },
         {
             key: 4,
-            label: (
-                <div className={cx('sub-label')} onClick={() => navigate(PATH.updatingPage)}>
-                    Cultureplex
-                </div>
-            ),
+            label: <div className={cx('sub-label')}>Cultureplex</div>,
             children: [
                 {
                     key: 'quay-online',
                     label: (
-                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                        <p className={cx('children')} onClick={handleNavMobile(PATH.updatingPage, setIsOpenNavbar)}>
                             Quầy online
                         </p>
                     ),
@@ -133,7 +116,7 @@ const Header = () => {
                 {
                     key: 'e-cgv',
                     label: (
-                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                        <p className={cx('children')} onClick={handleNavMobile(PATH.updatingPage, setIsOpenNavbar)}>
                             E-CGV
                         </p>
                     ),
@@ -141,7 +124,7 @@ const Header = () => {
                 {
                     key: 'cgv-egift',
                     label: (
-                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                        <p className={cx('children')} onClick={handleNavMobile(PATH.updatingPage, setIsOpenNavbar)}>
                             CGV EGift
                         </p>
                     ),
@@ -149,7 +132,7 @@ const Header = () => {
                 {
                     key: 'cgv-rules',
                     label: (
-                        <p className={cx('children')} onClick={() => navigate(PATH.updatingPage)}>
+                        <p className={cx('children')} onClick={handleNavMobile(PATH.updatingPage, setIsOpenNavbar)}>
                             CGV Rules
                         </p>
                     ),
@@ -159,7 +142,7 @@ const Header = () => {
         {
             key: 5,
             label: (
-                <div className={cx('sub-label')} onClick={() => navigate(PATH.updatingPage)}>
+                <div className={cx('sub-label')} onClick={handleNavMobile(PATH.updatingPage, setIsOpenNavbar)}>
                     Tuyển dụng
                 </div>
             ),
@@ -179,9 +162,9 @@ const Header = () => {
                         </li>
                         <li className={cx('topbar-item')}>
                             <img src="/images/header/icon_ticket25.png" alt="Vé của tôi" />
-                            <a href="" className={cx('topbar-link')}>
+                            <Link to={PATH.history} className={cx('topbar-link')}>
                                 VÉ CỦA TÔI
-                            </a>
+                            </Link>
                         </li>
                         {!userLogin ? (
                             <li className={cx('topbar-item')}>
@@ -197,9 +180,9 @@ const Header = () => {
                         ) : (
                             <li className={cx('topbar-item')}>
                                 <i className="fa-regular fa-user text-xl mr-1 text-gray-700"></i>
-                                <a href="..." className={cx('topbar-link', 'user-name')}>
+                                <Link to={PATH.account} className={cx('topbar-link', 'user-name')}>
                                     XIN CHÀO, {userLogin.hoTen}!
-                                </a>
+                                </Link>
                                 <button className={cx('topbar-link')} onClick={handleLogOut}>
                                     Thoát
                                 </button>
@@ -210,7 +193,10 @@ const Header = () => {
                             <button className={cx('lang-toggle-btn', 'active')} onClick={() => navigate(PATH.home)}>
                                 VN
                             </button>
-                            <button className={cx('lang-toggle-btn')} onClick={() => navigate(PATH.updatingPage)}>
+                            <button
+                                className={cx('lang-toggle-btn')}
+                                onClick={handleNavMobile(PATH.updatingPage, setIsOpenNavbar)}
+                            >
                                 EN
                             </button>
                         </li>
@@ -261,21 +247,19 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-
             {/* Nav mobile  */}
             <ul className="md:hidden grid grid-cols-4 text-center border-y border-gray-200 bg-[var(--body-color)]">
-                <li
-                    className="py-1 cursor-pointer"
-                    onClick={() =>
-                        setIsOpenNavbar(pre => {
-                            setIsOpenNavUser(false);
-                            return !pre;
-                        })
-                    }
-                >
+                <li className="py-1 cursor-pointer" onClick={() => setIsOpenNavbar(pre => !pre)}>
                     <div className={cx('nav-icon', 'bar-icon')}></div>
                 </li>
-                <li className="border-x border-gray-200 py-1 cursor-pointer">
+                <li
+                    className="border-x border-gray-200 py-1 cursor-pointer"
+                    onClick={() => {
+                        navigate(PATH.history);
+                        setIsOpenNavUser(false);
+                        setIsOpenNavbar(false);
+                    }}
+                >
                     <div className={cx('nav-icon', 'ticket-icon')}></div>
                 </li>
                 <li
@@ -360,6 +344,7 @@ const RapSubTitle = [
 const MemberSubTitle = [
     {
         title: 'Tài khoản CGV',
+        path: PATH.account,
     },
     {
         title: 'Quyền lợi',

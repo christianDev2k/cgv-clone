@@ -38,13 +38,13 @@ const LoginTemplate = () => {
     return (
         <form className="pr-2" onSubmit={handleSubmit(onSubmit)}>
             <div className={cx('auth-title')}>
-                <div className="w-2/5 mx-5">
-                    <Link to={PATH.login} className="font-base text-gray-300 px-4">
+                <div className="w-1/2 sm:w-3/5 sm:mx-5">
+                    <Link to={PATH.login} className="text-xs sm:text-sm text-gray-300 px-2 sm:px-4">
                         ĐĂNG NHẬP
                     </Link>
                 </div>
-                <div className="w-3/5 mx-5">
-                    <Link to={PATH.register} className="font-base pb-2 px-4 border-b-4 border-white">
+                <div className="w-1/2 sm:w-2/5 sm:mx-5">
+                    <Link to={PATH.register} className="text-xs sm:text-sm pb-2 px-2 sm:px-4 border-b-4 border-white">
                         ĐĂNG KÝ
                     </Link>
                 </div>

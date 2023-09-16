@@ -9,11 +9,11 @@
 .auth-btn {
     width: 100%;
     background-color: var(--primary) !important;
-    color: var(--white)!important;
-    font-size: var(--fz-16)!important;
-    font-weight: var(--fw-5)!important;
+    color: var(--white) !important;
+    font-size: var(--fz-16) !important;
+    font-weight: var(--fw-5) !important;
     height: auto !important;
-    padding: calc(var(--p-12) - 2px)!important;
+    padding: calc(var(--p-12) - 2px) !important;
     border: 1px solid transparent;
 
     &:hover {
@@ -22,7 +22,7 @@
     }
 
     &:focus-visible {
-        box-shadow: 0 0 7px var(--primary)!important;
-        outline: none!important;
+        box-shadow: 0 0 7px var(--primary) !important;
+        outline: none !important;
     }
 }

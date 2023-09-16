@@ -5,3 +5,5 @@ export { default as NowShowing } from './NowShowing';
 export { default as CommingSoon } from './CommingSoon';
 export { default as MovieDetail } from './MovieDetail';
 export { default as UpdatingPage } from './UpdatingPage';
+export { default as Account } from './Account';
+export { default as AccountDetail } from './AccountDetail';

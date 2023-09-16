@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
-import { Breadcrumb } from 'antd';
 import { Link } from 'react-router-dom';
 // ~
 import { PATH } from 'constant';
 import { useAppDispatch } from 'store';
 import { useMovie } from 'hooks';
-import { MovieCard } from 'components';
+import { MovieCard, Breadcrumb } from 'components';
 import { getMovieListThunk } from 'store/quanLyPhimSlice';
 
 const NowShowingTemplate = () => {
@@ -20,7 +19,7 @@ const NowShowingTemplate = () => {
         <div>
             {/* Navigate  */}
             <div className="bg-[#f1f0e5] border-b border-[#dfdba8]">
-                <div className="max-w-screen-lg mx-auto py-[5px]">
+                <div className="max-w-screen-lg mx-auto py-[5px] px-2 lg:px-0">
                     <Breadcrumb
                         items={breadcump}
                         separator={<i className="fa-solid fa-angle-right mx-4 text-sm"></i>}
@@ -30,17 +29,17 @@ const NowShowingTemplate = () => {
 
             {/* Body  */}
             <div className="bg-[var(--body-color)] py-6">
-                <div className="max-w-screen-lg mx-auto">
+                <div className="max-w-screen-lg mx-auto px-6 lg:px-0">
                     {/* Title  */}
                     <div className="flex justify-between items-end border-b-[3px] border-black pb-1">
-                        <h1 className="text-[38px] mb-2">Phim Sắp Chiếu</h1>
-                        <Link to={PATH.nowShowing} className="text-[20px] text-[#666]">
+                        <h1 className="text-2xl md:text-[38px] mb-2">Phim Sắp Chiếu</h1>
+                        <Link to={PATH.nowShowing} className="hidden sm:block text-[20px] text-[#666]">
                             PHIM ĐANG CHIẾU
                         </Link>
                     </div>
 
                     {/* Movie list  */}
-                    <div className="grid grid-cols-4 gap-x-10 gap-y-5 py-8 border-b-[3px] border-black">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 md:gap-10 py-8 border-b-[3px] border-black">
                         {movieList
                             ?.filter(movie => movie.sapChieu)
                             ?.map((movie, index) => (

@@ -1,7 +1,17 @@
 import { RouteObject } from 'react-router-dom';
 // ~
-import { CommingSoon, Home, Login, Register, NowShowing, MovieDetail, UpdatingPage } from 'pages';
-import { AuthLayout, MainLayout } from 'components';
+import {
+    CommingSoon,
+    Home,
+    Login,
+    Register,
+    NowShowing,
+    MovieDetail,
+    UpdatingPage,
+    Account,
+    AccountDetail,
+} from 'pages';
+import { AccountLayout, AuthLayout, MainLayout } from 'components';
 import { PATH } from 'constant';
 
 const router: RouteObject[] = [
@@ -40,6 +50,44 @@ const router: RouteObject[] = [
             {
                 path: PATH.updatingPage,
                 element: <UpdatingPage />,
+            },
+            {
+                path: PATH.customer,
+                element: <AccountLayout />,
+                children: [
+                    {
+                        path: PATH.account,
+                        element: <Account />,
+                    },
+                    {
+                        path: PATH.accountDetail,
+                        element: <AccountDetail />,
+                    },
+                    {
+                        path: PATH.memberCard,
+                        element: <UpdatingPage />,
+                    },
+                    {
+                        path: PATH.point,
+                        element: <UpdatingPage />,
+                    },
+                    {
+                        path: PATH.gift,
+                        element: <UpdatingPage />,
+                    },
+                    {
+                        path: PATH.voucher,
+                        element: <UpdatingPage />,
+                    },
+                    {
+                        path: PATH.coupon,
+                        element: <UpdatingPage />,
+                    },
+                    {
+                        path: PATH.history,
+                        element: <UpdatingPage />,
+                    },
+                ],
             },
         ],
     },

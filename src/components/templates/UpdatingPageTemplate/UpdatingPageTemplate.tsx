@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { Result } from 'antd';
 import { PATH } from 'constant';
-import { Button } from 'components';
+import { Button, Result } from 'components';
 
 const App: React.FC = () => {
     const navigate = useNavigate();

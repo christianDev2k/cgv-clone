@@ -1,17 +1,17 @@
 import { useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
-import { Carousel } from 'antd';
 import { CarouselRef } from 'antd/es/carousel';
 import { SwiperSlide, Swiper } from 'swiper/react';
-import 'swiper/css';
 import { Link } from 'react-router-dom';
+import { Carousel } from 'antd';
+import 'swiper/css';
 // ~
 import { FilmSlide, ToggleTabs } from 'components';
-import styles from './home.module.scss';
 import { useAppDispatch } from 'store';
 import { getBannerListThunk, getMovieListThunk } from 'store/quanLyPhimSlice';
 import { useMovie } from 'hooks';
 import { PATH } from 'constant';
+import styles from './home.module.scss';
 
 const cx = classNames.bind(styles);
 

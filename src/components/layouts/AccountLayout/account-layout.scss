@@ -1,0 +1,44 @@
+.account-nav {
+    .account-label {
+        --height: 34px;
+
+        display: block;
+        margin: var(--m-4) 0;
+        height: var(--height);
+        padding-left: 18px;
+        position: relative;
+        background-color: #ccc;
+
+        .label {
+            color: var(--text-title);
+            margin-left: var(--m-4);
+            font-size: var(--fz-12);
+            font-weight: var(--fw-7);
+            line-height: var(--height);
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            height: var(--height);
+            width: 18px;
+            background: url('/images/account/ribon_left-ccc.png') no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .active .account-label {
+        background-color: var(--primary);
+
+        .label {
+            color: var(--white);
+        }
+
+        &::before {
+            width: 100%;
+            background: url('/images/account/ribon_left.png') no-repeat;
+        }
+    }
+}

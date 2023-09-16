@@ -1,7 +1,7 @@
-export * from './Header';
-export * from './Footer';
+export * from './Antd';
 export * from './FilmSlide';
-export * from './Button';
-export * from './Input';
+export * from './Footer';
+export * from './Header';
 export * from './MovieCard';
 export * from './ToggleTabs';
+
