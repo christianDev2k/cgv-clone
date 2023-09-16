@@ -22,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                         token: {
                             colorBgElevated: 'transparent',
                             colorPrimary: '#e71a0f',
+                            fontFamily: 'Verdana, Arial, sans-serif',
                         },
                         components: {
                             Breadcrumb: {

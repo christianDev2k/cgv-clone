@@ -5,5 +5,4 @@ export * from './NowShowingTemplate';
 export * from './CommingSoonTemplate';
 export * from './MovieDetailTemplate';
 export * from './UpdatingPageTemplate';
-export * from './AccountTemplate';
-export * from './AccountDetailTemplate';
+export * from './Customer';

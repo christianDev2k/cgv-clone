@@ -27,7 +27,6 @@ const HomeTemplate = () => {
 
     return (
         <div className="pb-8 bg-[#fdfcf0]">
-            {/* Carousel  */}
             <>
                 <div className="max-w-screen-lg mx-auto pt-8 pb-4 hidden lg:block">
                     <ul className="flex">
@@ -39,6 +38,8 @@ const HomeTemplate = () => {
                     </ul>
                     <div className="h-2 mt-2 border-y border-black"></div>
                 </div>
+
+                {/* Carousel  */}
                 <div className={cx('carousel')}>
                     <div className="max-w-screen-lg mx-auto relative">
                         <Carousel ref={ref} autoplay dots style={{ border: '1px solid #fff' }}>

@@ -104,7 +104,7 @@ const Footer = () => {
                         </div>
                         <div className="grow text-[#636363]">
                             <h4 className="font-bold mb-2">CÔNG TY TNHH CJ CGV VIETNAM</h4>
-                            <div className="text-sm">
+                            <div className="text-xs sm:text-sm">
                                 <p>
                                     Giấy CNĐKDN: 0303675393, đăng ký lần đầu ngày 31/7/2008, đăng ký thay đổi lần thứ 5
                                     ngày 14/10/2015, cấp bởi Sở KHĐT thành phố Hồ Chí Minh.

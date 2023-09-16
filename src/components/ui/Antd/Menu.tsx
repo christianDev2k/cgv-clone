@@ -1,10 +1,10 @@
 import { Menu as MenuA, MenuProps as MenuPropsA } from 'antd';
 
-type MenuProps = {
+type MenuObject = {
     (props: MenuPropsA): JSX.Element;
 };
 
-const Menu: MenuProps = props => {
+const Menu: MenuObject = props => {
     return <MenuA {...props} />;
 };
 

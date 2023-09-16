@@ -1,5 +1,6 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { PATH } from 'constant';
+import { Collapse } from 'components';
 import './account-layout.scss';
 
 const NavLinkAccount: React.FC<{ label: string; path: string }> = ({ label, path }) => {
@@ -14,18 +15,29 @@ const NavLinkAccount: React.FC<{ label: string; path: string }> = ({ label, path
 
 const AccountLayout = () => {
     return (
-        <div className="py-8 bg-[var(--body-color)]">
-            <div className="max-w-screen-lg mx-auto flex w-full px-2 lg:px-0">
-                <div className="w-2/6 pr-6">
-                    <h3 className="font-bold text-[22px] text-[var(--primary)] mb-2">TÀI KHOẢN CGV</h3>
-                    <ul className="account-nav">
-                        {navLink.map(item => (
-                            <NavLinkAccount label={item.label} path={item.path} />
-                        ))}
-                    </ul>
+        <div className="pb-4 md:py-8 bg-[var(--body-color)]">
+            <div className="max-w-screen-lg mx-auto w-full px-2 lg:px-0">
+                {/* Nav mobile  */}
+                <div className="block md:hidden">
+                    <Collapse className="!rounded-none overflow-hidden" items={collapse} />
                 </div>
-                <div className="w-4/5">
-                    <Outlet />
+                <div className="flex">
+                    {/* Nav PC  */}
+                    <div className="hidden md:block w-2/6 pr-6">
+                        <h3 className="font-bold text-[20px] lg:text-[22px] text-[var(--primary)] mb-2">
+                            TÀI KHOẢN CGV
+                        </h3>
+                        <ul className="account-nav">
+                            {navLink.map(item => (
+                                <NavLinkAccount key={item.label} label={item.label} path={item.path} />
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Outlet  */}
+                    <div className="w-full md:w-4/5">
+                        <Outlet />
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,6 +76,24 @@ const navLink = [
     {
         label: 'LỊCH SỬ GIAO DỊCH',
         path: PATH.history,
+    },
+];
+
+const collapse = [
+    {
+        key: '1',
+        label: <div className="text-[var(--primary)] py-2 px-6">TÀI KHOẢN CGV</div>,
+        children: (
+            <ul className="pb-1">
+                {navLink.map(item => (
+                    <Link key={item.label} to={item.path}>
+                        <li className="mx-4 py-[5px] border-b border-[#ccc] text-xs text-[var(--text-secondary)] mt-2 hover:text-[var(--primary)] transition">
+                            {item.label}
+                        </li>
+                    </Link>
+                ))}
+            </ul>
+        ),
     },
 ];
 

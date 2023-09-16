@@ -47,3 +47,9 @@
     background-repeat: repeat-x;
     padding-bottom: 114px;
 }
+
+@media screen and (max-width: 639.98px) {
+    .footer-item {
+        font-size: var(--fz-12);
+    }
+}

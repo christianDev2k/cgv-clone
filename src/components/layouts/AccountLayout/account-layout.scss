@@ -42,3 +42,28 @@
         }
     }
 }
+
+.ant-collapse-header,
+.ant-collapse-content-box {
+    padding: 0 !important;
+}
+
+.ant-collapse-header {
+    display: flex;
+    align-items: center !important;
+    background-color: #f4f4f4;
+    padding: 0 10px !important;
+
+    .ant-collapse-expand-icon {
+        padding-right: 0 !important;
+        color: var(--primary);
+    }
+}
+
+.ant-collapse-content {
+    background-color: var(--body-color) !important;
+}
+
+.ant-collapse-expand-icon {
+    height: 100%;
+}
