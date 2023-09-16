@@ -64,7 +64,7 @@ const Header = () => {
                 {
                     key: 'tat-ca-rap',
                     label: (
-                        <p className={cx('children')} onClick={handleNavMobile(PATH.updatingPage, setIsOpenNavbar)}>
+                        <p className={cx('children')} onClick={handleNavMobile(PATH.allCGV, setIsOpenNavbar)}>
                             Tất cả các rạp
                         </p>
                     ),
@@ -190,7 +190,7 @@ const Header = () => {
                         )}
 
                         <li className={cx('topbar-item', 'lang-toggle')}>
-                            <button className={cx('lang-toggle-btn', 'active')} onClick={() => navigate(PATH.home)}>
+                            <button className={cx('lang-toggle-btn', 'active')} onClick={() => navigate('/')}>
                                 VN
                             </button>
                             <button
@@ -329,7 +329,7 @@ const PhimSubTitle = [
 const RapSubTitle = [
     {
         title: 'Tất cả các rạp',
-        path: PATH.updatingPage,
+        path: PATH.allCGV,
     },
     {
         title: 'Rạp đặc biệt',

@@ -121,7 +121,7 @@ const HomeTemplate = () => {
 const homeSection = [
     {
         class: 'heater',
-        path: PATH.updatingPage,
+        path: PATH.allCGV,
     },
     {
         class: 'now-sh',

@@ -1,17 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { UserByAccessToken, UserLogin } from 'types';
-import { getUserByAccessTokenThunk, loginThunk } from '.';
+import { UpdateUserResponse, UserByAccessToken, UserLogin } from 'types';
+import { UpdateAccountThunk, getUserByAccessTokenThunk, loginThunk } from '.';
 
 type initialStateType = {
-    userLogin: UserLogin | UserByAccessToken;
+    userLogin: UserLogin | UserByAccessToken | UpdateUserResponse;
     accessToken: string;
     isFetchingLogin: boolean;
+    isUpdatingUser: boolean;
 };
 
 const initialState: initialStateType = {
     userLogin: undefined,
     accessToken: undefined,
     isFetchingLogin: false,
+    isUpdatingUser: false,
 };
 
 const quanLyNguoiDungSlice = createSlice({
@@ -21,12 +23,13 @@ const quanLyNguoiDungSlice = createSlice({
         logOutUser: state => {
             state.accessToken = undefined;
             state.userLogin = undefined;
-            
+
             localStorage.removeItem('ACCESS_TOKEN');
         },
     },
     extraReducers(builder) {
         builder
+            // Login
             .addCase(loginThunk.pending, state => {
                 state.isFetchingLogin = true;
             })
@@ -41,8 +44,21 @@ const quanLyNguoiDungSlice = createSlice({
                 state.isFetchingLogin = false;
             })
 
+            // Get access token
             .addCase(getUserByAccessTokenThunk.fulfilled, (state, { payload }) => {
                 state.userLogin = payload;
+            })
+
+            // Update user
+            .addCase(UpdateAccountThunk.pending, state => {
+                state.isUpdatingUser = true;
+            })
+            .addCase(UpdateAccountThunk.fulfilled, (state, { payload }) => {
+                state.userLogin = payload;
+                state.isUpdatingUser = false;
+            })
+            .addCase(UpdateAccountThunk.rejected, state => {
+                state.isUpdatingUser = false;
             });
     },
 });

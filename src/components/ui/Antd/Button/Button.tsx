@@ -14,7 +14,7 @@ export const BuyTicketButton = () => {
     return (
         <button className={styles.buyTicket}>
             <div>
-                <img src="/images/home/bg-cate-booking.png" alt="" className="mr-1" />
+                <img src="/images/home/bg-cate-booking.png" alt="" className="mr-0.5" />
                 <span>Mua vé</span>
             </div>
         </button>

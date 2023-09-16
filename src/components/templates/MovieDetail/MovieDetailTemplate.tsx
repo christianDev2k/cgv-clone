@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 // ~
-import { PATH } from 'constant';
 import { useMovie } from 'hooks';
 import { useAppDispatch } from 'store';
 import { GetInforMovieThunk } from 'store/quanLyPhimSlice';
@@ -21,7 +20,7 @@ const MovieDetail = () => {
     const breadcump = [
         {
             title: (
-                <Link to={PATH.home}>
+                <Link to='/'>
                     <i className="fa-solid fa-house text-base"></i>
                 </Link>
             ),

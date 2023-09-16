@@ -10,6 +10,8 @@ import {
     UpdatingPage,
     Account,
     AccountDetail,
+    HistoryBooking,
+    AllCGV,
 } from 'pages';
 import { AccountLayout, AuthLayout, MainLayout } from 'components';
 import { PATH } from 'constant';
@@ -32,8 +34,8 @@ const router: RouteObject[] = [
         element: <MainLayout />,
         children: [
             {
-                path: PATH.home,
                 element: <Home />,
+                index: true,
             },
             {
                 path: PATH.nowShowing,
@@ -46,6 +48,10 @@ const router: RouteObject[] = [
             {
                 path: PATH.movieDetail,
                 element: <MovieDetail />,
+            },
+            {
+                path: PATH.allCGV,
+                element: <AllCGV />,
             },
             {
                 path: PATH.updatingPage,
@@ -85,7 +91,7 @@ const router: RouteObject[] = [
                     },
                     {
                         path: PATH.history,
-                        element: <UpdatingPage />,
+                        element: <HistoryBooking />,
                     },
                 ],
             },

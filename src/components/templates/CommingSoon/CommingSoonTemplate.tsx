@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+// ~
 import { PATH } from 'constant';
 import { useAppDispatch } from 'store';
 import { useMovie } from 'hooks';
@@ -31,16 +32,16 @@ const NowShowingTemplate = () => {
                 <div className="max-w-screen-lg mx-auto px-6 lg:px-0">
                     {/* Title  */}
                     <div className="flex justify-between items-end border-b-[3px] border-black pb-1">
-                        <h1 className="text-2xl md:text-[38px] mb-2">Phim Đang Chiếu</h1>
-                        <Link to={PATH.commingSoon} className="hidden sm:block text-[20px] text-[#666]">
-                            PHIM SẮP CHIẾU
+                        <h1 className="text-2xl md:text-[38px] mb-2">Phim Sắp Chiếu</h1>
+                        <Link to={PATH.nowShowing} className="hidden sm:block text-[20px] text-[#666]">
+                            PHIM ĐANG CHIẾU
                         </Link>
                     </div>
 
                     {/* Movie list  */}
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 md:gap-10 py-8 border-b-[3px] border-black">
                         {movieList
-                            ?.filter(movie => movie.dangChieu)
+                            ?.filter(movie => movie.sapChieu)
                             ?.map((movie, index) => (
                                 <MovieCard key={movie.maPhim} movie={movie} index={index} />
                             ))}
@@ -56,7 +57,7 @@ export default NowShowingTemplate;
 const breadcump = [
     {
         title: (
-            <Link to={PATH.home}>
+            <Link to="/">
                 <i className="fa-solid fa-house text-base"></i>
             </Link>
         ),
@@ -65,6 +66,6 @@ const breadcump = [
         title: <span>Phim</span>,
     },
     {
-        title: <span className="underline font-bold">Phim đang chiếu</span>,
+        title: <span className="underline font-bold">Phim sắp chiếu</span>,
     },
 ];

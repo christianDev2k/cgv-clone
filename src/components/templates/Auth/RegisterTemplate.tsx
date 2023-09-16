@@ -26,7 +26,8 @@ const LoginTemplate = () => {
 
     const onSubmit: SubmitHandler<RegisterSchemaType> = async value => {
         try {
-            await quanLyNguoiDungService.register(value);
+            console.log(value);
+            await quanLyNguoiDungService.register({ ...value, maNhom: 'GP00' });
 
             handleSuccess('Đăng ký thành công!');
             navigate(PATH.login);
@@ -86,13 +87,7 @@ const LoginTemplate = () => {
                     error={errors?.soDt?.message}
                     register={register}
                 />
-                <Input
-                    label="Mã nhóm"
-                    placeholder="Mã nhóm"
-                    id="maNhom"
-                    error={errors?.maNhom?.message}
-                    register={register}
-                />
+                <Input label="Mã nhóm" placeholder="Mã nhóm" id="maNhom" register={register} hidden />
             </div>
             <Button htmlType="submit" className={cx('auth-btn')}>
                 ĐĂNG KÝ

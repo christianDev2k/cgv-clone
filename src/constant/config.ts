@@ -1,5 +1,4 @@
 const PATH = {
-    home: '/',
     login: '/login',
     register: '/register',
     nowShowing: '/now-showing',
@@ -15,6 +14,7 @@ const PATH = {
     voucher: '/customer/voucher',
     coupon: '/customer/coupon',
     history: '/customer/history',
+    allCGV: '/all-cgv',
 };
 
 export default PATH;

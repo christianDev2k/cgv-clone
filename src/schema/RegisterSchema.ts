@@ -16,8 +16,11 @@ export const RegisterSchema = z.object({
         .string()
         .nonempty('Vui lòng nhập số điện thoại!')
         .regex(/(84|0[3|5|7|8|9])+([0-9]{8})\b/, 'Số điện thoại không hợp lệ!'),
-    maNhom: z.string().nonempty('Vui lòng nhập mã nhóm!'),
-    hoTen: z.string().nonempty('Vui lòng nhập họ tên!'),
+    maNhom: z.string(),
+    hoTen: z
+        .string()
+        .nonempty('Vui lòng nhập họ tên!')
+        .regex(/^[a-zA-ZÀ-ỹ\s']+$/, 'Vui lòng nhập họ và tên hợp lệ!'),
 });
 
 export type RegisterSchemaType = z.infer<typeof RegisterSchema>;

@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { PATH } from 'constant';
 import { Button, Result } from 'components';
 
 const App: React.FC = () => {
@@ -11,11 +10,7 @@ const App: React.FC = () => {
                     title="Hi, This page is under construction and will be available soon!"
                     status="403"
                     extra={
-                        <Button
-                            type="primary"
-                            className="!h-auto !py-1.5 !text-base"
-                            onClick={() => navigate(PATH.home)}
-                        >
+                        <Button type="primary" className="!h-auto !py-1.5 !text-base" onClick={() => navigate('/')}>
                             Back To Homepage
                         </Button>
                     }

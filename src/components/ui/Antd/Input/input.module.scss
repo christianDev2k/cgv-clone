@@ -13,4 +13,8 @@
     &.error {
         border-color: var(--bd-input-error);
     }
+
+    &:disabled {
+        background-color: var(--bg-input-disabled);
+    }
 }
