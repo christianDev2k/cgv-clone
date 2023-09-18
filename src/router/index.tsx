@@ -12,6 +12,7 @@ import {
     AccountDetail,
     HistoryBooking,
     AllCGV,
+    Booking,
 } from 'pages';
 import { AccountLayout, AuthLayout, MainLayout } from 'components';
 import { PATH } from 'constant';
@@ -52,6 +53,10 @@ const router: RouteObject[] = [
             {
                 path: PATH.allCGV,
                 element: <AllCGV />,
+            },
+            {
+                path: PATH.booking,
+                element: <Booking />,
             },
             {
                 path: PATH.updatingPage,

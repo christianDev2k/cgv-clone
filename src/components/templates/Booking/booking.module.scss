@@ -1,0 +1,12 @@
+.chair-item {
+    --size: 25px;
+
+    width: var(--size);
+    height: var(--size);
+    text-align: center;
+    line-height: var(--size);
+    border: 1px solid var(--text-secondary);
+    margin: var(--m-4);
+    font-size: var(--fz-10);
+    cursor: pointer;
+}

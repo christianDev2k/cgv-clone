@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
@@ -14,41 +13,39 @@ import App from './App.tsx';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <GlobalStyles>
-                <ConfigProvider
-                    theme={{
-                        token: {
-                            colorBgElevated: 'transparent',
-                            colorPrimary: '#e71a0f',
-                            fontFamily: 'Verdana, Arial, sans-serif',
+    <BrowserRouter>
+        <GlobalStyles>
+            <ConfigProvider
+                theme={{
+                    token: {
+                        colorBgElevated: 'transparent',
+                        colorPrimary: '#e71a0f',
+                        fontFamily: 'Verdana, Arial, sans-serif',
+                    },
+                    components: {
+                        Breadcrumb: {
+                            itemColor: '#222',
+                            linkColor: '#222',
+                            iconFontSize: 12,
+                            linkHoverColor: 'none',
+                            separatorMargin: 0,
                         },
-                        components: {
-                            Breadcrumb: {
-                                itemColor: '#222',
-                                linkColor: '#222',
-                                iconFontSize: 12,
-                                linkHoverColor: 'none',
-                                separatorMargin: 0,
-                            },
-                            Menu: {
-                                itemPaddingInline: 0,
-                                itemMarginInline: 0,
-                                itemBorderRadius: 0,
-                                itemHoverBg: '#f4f4f4',
-                            },
+                        Menu: {
+                            itemPaddingInline: 0,
+                            itemMarginInline: 0,
+                            itemBorderRadius: 0,
+                            itemHoverBg: '#f4f4f4',
                         },
-                    }}
-                >
-                    <ToastContainer position="top-center" />
-                    <Provider store={store}>
-                        <StyleProvider hashPriority="high">
-                            <App />
-                        </StyleProvider>
-                    </Provider>
-                </ConfigProvider>
-            </GlobalStyles>
-        </BrowserRouter>
-    </React.StrictMode>,
+                    },
+                }}
+            >
+                <ToastContainer position="top-center" />
+                <Provider store={store}>
+                    <StyleProvider hashPriority="high">
+                        <App />
+                    </StyleProvider>
+                </Provider>
+            </ConfigProvider>
+        </GlobalStyles>
+    </BrowserRouter>,
 );

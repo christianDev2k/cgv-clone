@@ -1,5 +1,64 @@
 .content {
     background-image: url('/images/all-cgv/cinema-showtimes-favorite-center.png');
     background-repeat: repeat-y;
-    padding: var(--p-16) var(--p-44);
+    background-size: contain;
+    width: 100%;
+    padding: var(--p-16) var(--p-48);
+
+    .title-cgv-cinemas {
+        color: #717171;
+        font-size: var(--fz-48);
+        font-weight: var(--fw-7);
+        text-shadow: 2px 2px 2px #b9b9b9;
+        text-align: center;
+    }
+
+    .cinema-name {
+        color: #dbdbdb;
+        transition: all 0.2s;
+        margin-top: var(--m-16);
+        cursor: pointer;
+
+        &:hover,
+        &.active {
+            color: var(--primary);
+        }
+    }
+}
+
+.title {
+    height: 60px;
+    text-align: center;
+    width: 100%;
+    margin: var(--m-20) 0;
+    background: url('/images/home/bg_h3_line.jpg') repeat-x scroll left center rgba(0, 0, 0, 0);
+
+    h2 {
+        display: inline-block;
+        height: 60px;
+        text-indent: -99999px;
+    }
+
+    &.theater h2 {
+        width: 270px;
+        background: url('/images/all-cgv/h3_theater.gif') no-repeat scroll center center / 220px 44px #fdfcf0;
+    }
+}
+
+.theater-info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: var(--p-16);
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+}
+
+@media screen and (max-width: 639.98px) {
+    .content {
+        .title-cgv-cinemas {
+            font-size: var(--fz-36);
+        }
+    }
 }

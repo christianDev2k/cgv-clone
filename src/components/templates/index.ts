@@ -7,3 +7,4 @@ export * from './MovieDetail';
 export * from './UpdatingPage';
 export * from './Customer';
 export * from './AllCGV';
+export * from './Booking';

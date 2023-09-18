@@ -15,6 +15,7 @@ const PATH = {
     coupon: '/customer/coupon',
     history: '/customer/history',
     allCGV: '/all-cgv',
+    booking: '/booking/:id',
 };
 
 export default PATH;

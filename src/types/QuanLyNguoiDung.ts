@@ -26,6 +26,7 @@ export type UpdateUser = {
 };
 
 export type UpdateUserResponse = UpdateUser & {
+    soDT?: string;
     loaiNguoiDung: string;
     thongTinDatVe:
         | {
