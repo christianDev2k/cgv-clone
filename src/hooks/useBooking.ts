@@ -2,10 +2,13 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'store';
 
 const useBooking = () => {
-    const { danhSachPhongVe, isFetchingPhongVe } = useSelector((state: RootState) => state.quanLyDatVeReducer);
+    const { danhSachPhongVe, isFetchingPhongVe, bookedList } = useSelector(
+        (state: RootState) => state.quanLyDatVeReducer,
+    );
     return {
         danhSachPhongVe,
         isFetchingPhongVe,
+        bookedList,
     };
 };
 

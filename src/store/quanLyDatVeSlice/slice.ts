@@ -1,21 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ListPhongVeType } from 'types';
+import { DanhSachGheType, ListPhongVeType } from 'types';
 import { LayDanhSachPhongVeThunk } from '.';
 
 type initialStateProps = {
     danhSachPhongVe: ListPhongVeType;
     isFetchingPhongVe: boolean;
+    bookedList: DanhSachGheType[] | [];
 };
 
 const initialState: initialStateProps = {
     danhSachPhongVe: undefined,
+    bookedList: [],
     isFetchingPhongVe: false,
 };
 
 const quanLyDatVeSlice = createSlice({
     name: 'quanLyDatVeSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        handleBooked: (state, { payload }) => {
+            state.bookedList = payload;
+        },
+    },
     extraReducers(builder) {
         builder
             .addCase(LayDanhSachPhongVeThunk.pending, state => {

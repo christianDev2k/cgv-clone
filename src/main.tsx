@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <ConfigProvider
                 theme={{
                     token: {
-                        colorBgElevated: 'transparent',
+                        // colorBgElevated: 'transparent',
                         colorPrimary: '#e71a0f',
                         fontFamily: 'Verdana, Arial, sans-serif',
                     },

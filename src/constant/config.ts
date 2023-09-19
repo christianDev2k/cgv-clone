@@ -16,6 +16,7 @@ const PATH = {
     history: '/customer/history',
     allCGV: '/all-cgv',
     booking: '/booking/:id',
+    checkout: '/checkout',
 };
 
 export default PATH;

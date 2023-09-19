@@ -13,6 +13,7 @@ import {
     HistoryBooking,
     AllCGV,
     Booking,
+    Checkout,
 } from 'pages';
 import { AccountLayout, AuthLayout, MainLayout } from 'components';
 import { PATH } from 'constant';
@@ -57,6 +58,10 @@ const router: RouteObject[] = [
             {
                 path: PATH.booking,
                 element: <Booking />,
+            },
+            {
+                path: PATH.checkout,
+                element: <Checkout />,
             },
             {
                 path: PATH.updatingPage,

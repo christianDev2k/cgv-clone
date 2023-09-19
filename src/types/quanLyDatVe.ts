@@ -9,7 +9,7 @@ type ThongTinPhimType = {
     gioChieu: string;
 };
 
-type DanhSachGheType = {
+export type DanhSachGheType = {
     maGhe: number;
     tenGhe: string;
     maRap: number;

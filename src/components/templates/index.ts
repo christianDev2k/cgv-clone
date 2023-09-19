@@ -8,3 +8,4 @@ export * from './UpdatingPage';
 export * from './Customer';
 export * from './AllCGV';
 export * from './Booking';
+export * from './Checkout';

@@ -40,12 +40,15 @@ const LoginTemplate = () => {
         <form className="pr-2" onSubmit={handleSubmit(onSubmit)}>
             <div className={cx('auth-title')}>
                 <div className="w-1/2 sm:w-3/5 sm:mx-5">
-                    <Link to={PATH.login} className="text-xs sm:text-sm text-gray-300 px-2 sm:px-4">
+                    <Link to={PATH.login} className="text-xs sm:text-sm !text-gray-300 px-2 sm:px-4">
                         ĐĂNG NHẬP
                     </Link>
                 </div>
                 <div className="w-1/2 sm:w-2/5 sm:mx-5">
-                    <Link to={PATH.register} className="text-xs sm:text-sm pb-2 px-2 sm:px-4 border-b-4 border-white">
+                    <Link
+                        to={PATH.register}
+                        className="text-xs sm:text-sm !text-white pb-2 px-2 sm:px-4 border-b-4 border-white"
+                    >
                         ĐĂNG KÝ
                     </Link>
                 </div>
