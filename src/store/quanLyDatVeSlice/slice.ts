@@ -28,6 +28,7 @@ const quanLyDatVeSlice = createSlice({
     },
     extraReducers(builder) {
         builder
+            // Lấy danh sách phòng vé
             .addCase(LayDanhSachPhongVeThunk.pending, state => {
                 state.isFetchingPhongVe = true;
             })
@@ -38,12 +39,15 @@ const quanLyDatVeSlice = createSlice({
             .addCase(LayDanhSachPhongVeThunk.rejected, state => {
                 state.isFetchingPhongVe = false;
             })
+
+            // Đặt vé
             .addCase(DatVeThunk.pending, state => {
                 state.isFetchingBooking = true;
             })
             .addCase(DatVeThunk.fulfilled, (state, { payload }) => {
                 state.isFetchingBooking = false;
                 state.bookingStatus = payload;
+                state.bookedList = [];
             })
             .addCase(DatVeThunk.rejected, state => {
                 state.isFetchingBooking = false;

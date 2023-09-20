@@ -45,7 +45,7 @@ const BookingTemplate = () => {
             });
         }
     };
-
+    
     const handleCheckout = () => {
         if (bookedList.length) {
             navigate(`/checkout/${id}`);
@@ -61,6 +61,7 @@ const BookingTemplate = () => {
     for (let i = 0; i < bookedList.length; i++) {
         tongGiaVe += bookedList[i].giaVe;
     }
+
     return (
         <div className="bg-[var(--body-color)] py-[30px]">
             <div className="max-w-screen-lg mx-auto px-2 lg:px-0">

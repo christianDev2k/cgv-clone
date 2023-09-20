@@ -116,17 +116,19 @@ const AllCGVTemplate = () => {
                         </div>
                         <div>
                             {listPhimActive.slice(0, 10).map((item, index) => {
-                                const { tenPhim, hinhAnh, lstLichChieuTheoPhim } = item;
+                                const { tenPhim, hinhAnh, lstLichChieuTheoPhim, maPhim } = item;
                                 return (
                                     <div key={index} className="py-4 border-b border-black">
                                         <h6 className="text-lg uppercase mb-3">{tenPhim}</h6>
                                         <div className="flex items-start">
                                             <div className="w-1/5">
-                                                <img
-                                                    src={hinhAnh}
-                                                    alt=""
-                                                    className="w-full h-32 sm:h-40 md:h-52 lg:h-64"
-                                                />
+                                                <Link to={`/${maPhim}/movie-detail`}>
+                                                    <img
+                                                        src={hinhAnh}
+                                                        alt=""
+                                                        className="w-full h-32 sm:h-40 md:h-52 lg:h-64"
+                                                    />
+                                                </Link>
                                             </div>
                                             <div className="w-4/5 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 pl-2">
                                                 {lstLichChieuTheoPhim.map(item => {

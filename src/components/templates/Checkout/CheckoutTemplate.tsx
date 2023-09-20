@@ -1,6 +1,7 @@
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { UndoOutlined } from '@ant-design/icons';
 import classNames from 'classnames/bind';
+import { toast } from 'react-toastify';
 // ~
 import { PATH } from 'constant';
 import { useBooking } from 'hooks';
@@ -11,7 +12,6 @@ import { useState } from 'react';
 import { useAppDispatch } from 'store';
 import { DatVeThunk } from 'store/quanLyDatVeSlice';
 import { DanhSachGheType } from 'types';
-import { toast } from 'react-toastify';
 
 const cx = classNames.bind(styles);
 
@@ -51,11 +51,9 @@ const CheckoutTemplate = () => {
         dispatch(DatVeThunk(ticketList))
             .unwrap()
             .then(() => {
-                toast.success(bookingStatus, {
-                    closeButton: false,
-                    hideProgressBar: true,
-                    autoClose: 1000,
-                });
+                alert('Đặt vé thành công');
+                navigate('/');
+                window.location.reload();
             })
             .catch(() => {
                 toast.error(bookingStatus, {

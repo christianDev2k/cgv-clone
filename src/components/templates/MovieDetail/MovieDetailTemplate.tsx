@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useMovie } from 'hooks';
 import { useAppDispatch } from 'store';
 import { GetInforMovieThunk } from 'store/quanLyPhimSlice';
-import { BuyTicketButton, ToggleTabs, Breadcrumb, Tag, LoadingUI } from 'components';
+import { ToggleTabs, Breadcrumb, Tag, LoadingUI } from 'components';
 import { LikeFilled } from '@ant-design/icons';
 
 const MovieDetail = () => {
@@ -54,13 +54,12 @@ const MovieDetail = () => {
                         <div className="w-1/5">
                             <div className="card relative pb-14">
                                 <img src={movie?.hinhAnh} alt={movie?.biDanh} className="w-full h-[290px]" />
-                                <div className="flex justify-between items-center absolute bottom-0 left-0 w-full">
+                                <div className="flex justify-center items-center absolute bottom-0 left-0 w-full">
                                     <div className="cursor-pointer">
                                         <Tag icon={<LikeFilled />} color="#1877f2">
                                             Like
                                         </Tag>
                                     </div>
-                                    <BuyTicketButton />
                                 </div>
                             </div>
                         </div>

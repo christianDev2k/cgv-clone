@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 // ~
 import { Movie } from 'types';
-import { BuyTicketButton } from 'components';
+import { Button } from 'components';
 import { Link } from 'react-router-dom';
 import { Tag } from 'antd';
 import { LikeFilled } from '@ant-design/icons';
@@ -36,7 +36,9 @@ const MovieCard = ({ movie, index }: MovieCardProps) => {
                             Like
                         </Tag>
                     </div>
-                    <BuyTicketButton />
+                    <Button type="primary" className="uppercase !font-bold !px-2">
+                        Xem chi tiết
+                    </Button>
                 </div>
             </div>
         </div>
