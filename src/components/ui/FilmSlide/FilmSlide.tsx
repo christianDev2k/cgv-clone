@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 // ~
-import { Button, BuyTicketButton } from 'components';
+import { Button } from 'components';
 import styles from './film-slide.module.scss';
 import { Movie } from 'types';
 
@@ -20,11 +20,10 @@ const FilmSlide = ({ movie }: FilmSlideProps) => {
                 <div className={cx('overlay')}>
                     <div className={cx('content')}>
                         <h4 className="text-center font-bold text-white mb-4">{tenPhim}</h4>
-                        <div className="flex justify-between">
-                            <Button type="primary" className="uppercase !font-bold !px-1">
+                        <div>
+                            <Button type="primary" className="uppercase !font-bold !px-1 w-full">
                                 Xem chi tiết
                             </Button>
-                            <BuyTicketButton />
                         </div>
                     </div>
                 </div>

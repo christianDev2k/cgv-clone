@@ -15,9 +15,8 @@ const NavLinkAccount: React.FC<{ label: string; path: string }> = ({ label, path
 };
 
 const AccountLayout = () => {
-    const { accessToken } = useAuth();
-
-    if (!accessToken) return <Navigate to={PATH.login} />;
+    const { userLogin } = useAuth();
+    if (!userLogin) return <Navigate to={PATH.login} />;
     return (
         <div className="pb-4 md:py-8 bg-[var(--body-color)]">
             <div className="max-w-screen-lg mx-auto w-full px-2 lg:px-0">

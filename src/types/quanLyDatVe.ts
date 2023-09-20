@@ -24,3 +24,11 @@ export type ListPhongVeType = {
     danhSachGhe: DanhSachGheType[];
     thongTinPhim: ThongTinPhimType;
 };
+
+export type DatVeType = {
+    maLichChieu: number;
+    danhSachVe: {
+        maGhe: number;
+        giaVe: number;
+    }[];
+};

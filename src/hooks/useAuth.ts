@@ -2,11 +2,11 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'store';
 
 const useAuth = () => {
-    const { accessToken, isFetchingLogin, userLogin, isUpdatingUser } = useSelector(
+    const { isFetchingLogin, userLogin, isUpdatingUser, userInfo } = useSelector(
         (state: RootState) => state.quanLyNguoiDungReducer,
     );
 
-    return { accessToken, isFetchingLogin, userLogin, isUpdatingUser };
+    return { isFetchingLogin, userLogin, isUpdatingUser, userInfo };
 };
 
 export default useAuth;

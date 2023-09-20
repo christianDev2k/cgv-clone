@@ -7,7 +7,7 @@ export const getMovieListThunk = createAsyncThunk('getMovieListThunk', async (_,
         const list_1 = await quanLyPhimService.LayDanhSachPhim('?maNhom=GP01');
         const list_2 = await quanLyPhimService.LayDanhSachPhim('?maNhom=GP09');
         const list_3 = await quanLyPhimService.LayDanhSachPhim('?maNhom=GP03');
-        await sleep(1500);
+        await sleep();
 
         const movies = [...list_1.data.content, ...list_2.data.content, ...list_3.data.content];
         return movies;
@@ -19,7 +19,7 @@ export const getMovieListThunk = createAsyncThunk('getMovieListThunk', async (_,
 export const getBannerListThunk = createAsyncThunk('getBannerListThunk', async (_, { rejectWithValue }) => {
     try {
         const data = await quanLyPhimService.LayDanhSachBanner();
-        await sleep(1500);
+        await sleep();
 
         return data.data.content;
     } catch (err) {
@@ -32,6 +32,7 @@ export const GetInforMovieThunk = createAsyncThunk(
     async (payload: string, { rejectWithValue }) => {
         try {
             const data = await quanLyPhimService.LayThongTinPhim(payload);
+            await sleep();
             return data.data.content;
         } catch (err) {
             return rejectWithValue(err);

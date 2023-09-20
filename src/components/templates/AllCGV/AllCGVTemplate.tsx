@@ -6,7 +6,7 @@ import { LayThongTinCumRapThunk, LayThongTinLichChieuThunk } from 'store/quanLyR
 import { useAppDispatch } from 'store';
 import { useCinemas } from 'hooks';
 import { DanhSachPhimType, ThongTinCumRapType } from 'types';
-import { Button, ToggleTabs } from 'components';
+import { Button, LoadingUI, ToggleTabs } from 'components';
 import { PATH } from 'constant';
 import styles from './all-cgv.module.scss';
 
@@ -15,7 +15,7 @@ const cx = classNames.bind(styles);
 const AllCGVTemplate = () => {
     const dispatch = useAppDispatch();
     const [cinemaActive, setCinemasActive] = useState<ThongTinCumRapType>(undefined);
-    const { listCinemas, listLichChieu } = useCinemas();
+    const { listCinemas, listLichChieu, isFetchingListCinemas } = useCinemas();
     const listPhimActive: DanhSachPhimType[] = [];
 
     if (listCinemas && cinemaActive && listLichChieu) {
@@ -46,6 +46,8 @@ const AllCGVTemplate = () => {
         dispatch(LayThongTinCumRapThunk());
         dispatch(LayThongTinLichChieuThunk());
     }, [dispatch]);
+
+    if (isFetchingListCinemas) return <LoadingUI />;
 
     return (
         <div className="bg-[var(--body-color)] py-8">
@@ -113,10 +115,10 @@ const AllCGVTemplate = () => {
                             <ToggleTabs title_1="Lịch chiếu" title_2="Giá vé" />
                         </div>
                         <div>
-                            {listPhimActive.slice(0, 10).map(item => {
-                                const { maPhim, tenPhim, hinhAnh, lstLichChieuTheoPhim } = item;
+                            {listPhimActive.slice(0, 10).map((item, index) => {
+                                const { tenPhim, hinhAnh, lstLichChieuTheoPhim } = item;
                                 return (
-                                    <div key={maPhim} className="py-4 border-b border-black">
+                                    <div key={index} className="py-4 border-b border-black">
                                         <h6 className="text-lg uppercase mb-3">{tenPhim}</h6>
                                         <div className="flex items-start">
                                             <div className="w-1/5">

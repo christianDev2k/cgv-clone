@@ -68,7 +68,6 @@ const router: RouteObject[] = [
                 element: <UpdatingPage />,
             },
             {
-                path: PATH.customer,
                 element: <AccountLayout />,
                 children: [
                     {

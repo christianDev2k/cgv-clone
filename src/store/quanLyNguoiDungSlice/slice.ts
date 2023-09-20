@@ -3,17 +3,17 @@ import { UpdateUserResponse, UserByAccessToken, UserLogin } from 'types';
 import { UpdateAccountThunk, getUserByAccessTokenThunk, loginThunk } from '.';
 
 type initialStateType = {
-    userLogin: UserLogin | UserByAccessToken | UpdateUserResponse;
-    accessToken: string;
+    userLogin: UserLogin | UpdateUserResponse | UserByAccessToken;
+    userInfo: UserByAccessToken;
     isFetchingLogin: boolean;
     isUpdatingUser: boolean;
 };
 
 const initialState: initialStateType = {
     userLogin: undefined,
-    accessToken: undefined,
     isFetchingLogin: false,
     isUpdatingUser: false,
+    userInfo: undefined,
 };
 
 const quanLyNguoiDungSlice = createSlice({
@@ -21,9 +21,7 @@ const quanLyNguoiDungSlice = createSlice({
     initialState,
     reducers: {
         logOutUser: state => {
-            state.accessToken = undefined;
             state.userLogin = undefined;
-
             localStorage.removeItem('ACCESS_TOKEN');
         },
     },
@@ -36,8 +34,6 @@ const quanLyNguoiDungSlice = createSlice({
             .addCase(loginThunk.fulfilled, (state, { payload }) => {
                 state.isFetchingLogin = false;
                 state.userLogin = payload;
-                state.accessToken = payload.accessToken;
-
                 localStorage.setItem('ACCESS_TOKEN', payload.accessToken);
             })
             .addCase(loginThunk.rejected, state => {
@@ -47,6 +43,7 @@ const quanLyNguoiDungSlice = createSlice({
             // Get access token
             .addCase(getUserByAccessTokenThunk.fulfilled, (state, { payload }) => {
                 state.userLogin = payload;
+                state.userInfo = payload;
             })
 
             // Update user

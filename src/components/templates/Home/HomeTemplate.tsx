@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Carousel } from 'antd';
 import 'swiper/css';
 // ~
-import { FilmSlide, ToggleTabs } from 'components';
+import { FilmSlide, LoadingUI, ToggleTabs } from 'components';
 import { useAppDispatch } from 'store';
 import { getBannerListThunk, getMovieListThunk } from 'store/quanLyPhimSlice';
 import { useMovie } from 'hooks';
@@ -18,12 +18,14 @@ const cx = classNames.bind(styles);
 const HomeTemplate = () => {
     const ref = useRef<CarouselRef>(null);
     const dispatch = useAppDispatch();
-    const { bannerList, movieList } = useMovie();
+    const { bannerList, movieList, isFetchingBannerList, isFetchingMovieList } = useMovie();
 
     useEffect(() => {
         dispatch(getMovieListThunk());
         dispatch(getBannerListThunk());
     }, [dispatch]);
+
+    if (isFetchingBannerList && isFetchingMovieList) return <LoadingUI />;
 
     return (
         <div className="pb-8 bg-[#fdfcf0]">

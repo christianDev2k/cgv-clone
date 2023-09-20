@@ -1,0 +1,36 @@
+.step-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 16px;
+    background-color: #bcbdc0;
+    border: 2px solid #9d9fa2;
+    h4 {
+        font-style: italic;
+    }
+    span {
+        font-weight: bold;
+        font-style: normal;
+        font-size: 16px;
+    }
+}
+
+.checkout-table {
+    background-color: #fff1ce;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+
+    .row {
+        padding: 10px;
+        border: 1px solid #d4d3c9;
+        &.subtotal {
+            background-color: #e71a0f;
+            color: #fff;
+        }
+    }
+
+    .total {
+        background-color: #d0cece;
+        font-size: 16px;
+    }
+}

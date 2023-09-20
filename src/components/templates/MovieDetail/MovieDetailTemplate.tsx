@@ -4,14 +4,14 @@ import { Link, useParams } from 'react-router-dom';
 import { useMovie } from 'hooks';
 import { useAppDispatch } from 'store';
 import { GetInforMovieThunk } from 'store/quanLyPhimSlice';
-import { BuyTicketButton, ToggleTabs, Breadcrumb, Tag } from 'components';
+import { BuyTicketButton, ToggleTabs, Breadcrumb, Tag, LoadingUI } from 'components';
 import { LikeFilled } from '@ant-design/icons';
 
 const MovieDetail = () => {
     const { id } = useParams();
 
     const dispatch = useAppDispatch();
-    const { movieDetail: movie } = useMovie();
+    const { movieDetail: movie, isFetchingmovieDetail } = useMovie();
 
     useEffect(() => {
         dispatch(GetInforMovieThunk(id));
@@ -20,7 +20,7 @@ const MovieDetail = () => {
     const breadcump = [
         {
             title: (
-                <Link to='/'>
+                <Link to="/">
                     <i className="fa-solid fa-house text-base"></i>
                 </Link>
             ),
@@ -29,6 +29,8 @@ const MovieDetail = () => {
             title: <span className="underline font-bold uppercase">{movie?.tenPhim}</span>,
         },
     ];
+
+    if (isFetchingmovieDetail) return <LoadingUI />;
 
     return (
         <div>

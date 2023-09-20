@@ -8,7 +8,7 @@ type initialStateProps = {
     bannerList: Banner[];
     isFetchingMovieList: boolean;
     isFetchingBannerList: boolean;
-    isFetchingmovieDetailt: boolean;
+    isFetchingmovieDetail: boolean;
 };
 
 const initialState: initialStateProps = {
@@ -17,7 +17,7 @@ const initialState: initialStateProps = {
     movieDetail: undefined,
     isFetchingMovieList: false,
     isFetchingBannerList: false,
-    isFetchingmovieDetailt: false,
+    isFetchingmovieDetail: false,
 };
 
 const quanLyPhimSlice = createSlice({
@@ -52,14 +52,14 @@ const quanLyPhimSlice = createSlice({
 
             // Movie Detail
             .addCase(GetInforMovieThunk.pending, state => {
-                state.isFetchingmovieDetailt = true;
+                state.isFetchingmovieDetail = true;
             })
             .addCase(GetInforMovieThunk.fulfilled, (state, { payload }) => {
                 state.movieDetail = payload;
-                state.isFetchingmovieDetailt = false;
+                state.isFetchingmovieDetail = false;
             })
             .addCase(GetInforMovieThunk.rejected, state => {
-                state.isFetchingmovieDetailt = false;
+                state.isFetchingmovieDetail = false;
             });
     },
 });

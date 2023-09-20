@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'store';
 
 const useMovie = () => {
-    const { movieList, bannerList, movieDetail, isFetchingBannerList, isFetchingMovieList, isFetchingmovieDetailt } =
+    const { movieList, bannerList, movieDetail, isFetchingBannerList, isFetchingMovieList, isFetchingmovieDetail } =
         useSelector((state: RootState) => state.quanLyPhimReducer);
     return {
         movieList,
@@ -10,7 +10,7 @@ const useMovie = () => {
         movieDetail,
         isFetchingBannerList,
         isFetchingMovieList,
-        isFetchingmovieDetailt,
+        isFetchingmovieDetail,
     };
 };
 

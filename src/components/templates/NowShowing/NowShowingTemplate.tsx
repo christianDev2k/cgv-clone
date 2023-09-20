@@ -3,16 +3,18 @@ import { Link } from 'react-router-dom';
 import { PATH } from 'constant';
 import { useAppDispatch } from 'store';
 import { useMovie } from 'hooks';
-import { MovieCard, Breadcrumb } from 'components';
+import { MovieCard, Breadcrumb, LoadingUI } from 'components';
 import { getMovieListThunk } from 'store/quanLyPhimSlice';
 
 const NowShowingTemplate = () => {
     const dispatch = useAppDispatch();
-    const { movieList } = useMovie();
+    const { movieList, isFetchingMovieList } = useMovie();
 
     useEffect(() => {
         dispatch(getMovieListThunk());
     }, [dispatch]);
+
+    if (isFetchingMovieList) return <LoadingUI />;
 
     return (
         <div>

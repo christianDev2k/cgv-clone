@@ -22,13 +22,13 @@ const AuthLayout = () => {
                     <div className="w-2/5 lg:w-1/2 hidden md:block border-l border-gray-300">
                         <Carousel autoplay fade className="pb-6">
                             <div>
-                                <img src="images/auth/1.jpg" alt="" />
+                                <img src="/images/auth/1.jpg" alt="" />
                             </div>
                             <div>
-                                <img src="images/auth/2.jpg" alt="" />
+                                <img src="/images/auth/2.jpg" alt="" />
                             </div>
                             <div>
-                                <img src="images/auth/3.jpg" alt="" />
+                                <img src="/images/auth/3.jpg" alt="" />
                             </div>
                         </Carousel>
                     </div>

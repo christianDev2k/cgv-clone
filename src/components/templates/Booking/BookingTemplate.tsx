@@ -8,12 +8,12 @@ import { LayDanhSachPhongVeThunk, quanLyDatVeActions } from 'store/quanLyDatVeSl
 import { DanhSachGheType } from 'types';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { PATH } from 'constant';
+import { BookingInfo, LoadingUI } from 'components';
 
 const cx = classNames.bind(styles);
 
 const BookingTemplate = () => {
-    const { danhSachPhongVe, bookedList } = useBooking();
+    const { danhSachPhongVe, bookedList, isFetchingPhongVe } = useBooking();
     const dispatch = useAppDispatch();
     const { id } = useParams();
     const navigate = useNavigate();
@@ -21,7 +21,8 @@ const BookingTemplate = () => {
     useEffect(() => {
         dispatch(LayDanhSachPhongVeThunk(id));
     }, [dispatch, id]);
-
+    
+    if (isFetchingPhongVe) return <LoadingUI />;
     if (!danhSachPhongVe) return;
     const {
         thongTinPhim: { tenCumRap, tenRap, ngayChieu, gioChieu, hinhAnh, tenPhim },
@@ -47,7 +48,7 @@ const BookingTemplate = () => {
 
     const handleCheckout = () => {
         if (bookedList.length) {
-            navigate(PATH.checkout);
+            navigate(`/checkout/${id}`);
         } else {
             toast.error('Vui lòng chọn ghế trước khi tiếp tục', {
                 closeButton: false,
@@ -60,7 +61,6 @@ const BookingTemplate = () => {
     for (let i = 0; i < bookedList.length; i++) {
         tongGiaVe += bookedList[i].giaVe;
     }
-
     return (
         <div className="bg-[var(--body-color)] py-[30px]">
             <div className="max-w-screen-lg mx-auto px-2 lg:px-0">
@@ -108,54 +108,18 @@ const BookingTemplate = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={cx('booking-info')}>
-                        <div className="md:flex px-32 gap-x-2 justify-between">
-                            <div className={cx('direct', 'pre')}></div>
-                            <div className="md:flex gap-x-2">
-                                <img src={hinhAnh} alt="hinh anh phim" className="w-20" />
-                                <h6 className="uppercase">{tenPhim}</h6>
-                            </div>
-                            <div className="mt-2 md:mt-0">
-                                <div className="flex">
-                                    <p className="w-28">Rạp</p>
-                                    <p className="font-bold">{tenCumRap}</p>
-                                </div>
-                                <div className="flex">
-                                    <p className="w-28">Suất chiếu</p>
-                                    <p className="font-bold">
-                                        {gioChieu},{ngayChieu}
-                                    </p>
-                                </div>
-                                <div className="flex">
-                                    <p className="w-28">Phòng chiếu</p>
-                                    <p className="font-bold">{tenRap}</p>
-                                </div>
-                                <div className="flex">
-                                    <p className="w-28">Ghế</p>
-                                    <p className="font-bold">
-                                        {bookedList.map((item: DanhSachGheType) => (
-                                            <span key={item.stt}>{item.tenGhe} </span>
-                                        ))}
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="mt-2 md:mt-0">
-                                <div className="flex">
-                                    <p className="w-16">Vé</p>
-                                    <p className="font-bold">{tongGiaVe.toLocaleString('vi-VN')}đ</p>
-                                </div>
-                                <div className="flex">
-                                    <p className="w-16">Combo</p>
-                                    <p className="font-bold">0,00đ</p>
-                                </div>
-                                <div className="flex">
-                                    <p className="w-16">Tổng</p>
-                                    <p className="font-bold">{tongGiaVe.toLocaleString('vi-VN')}đ</p>
-                                </div>
-                            </div>
-                            <div className={cx('direct', 'next')} onClick={handleCheckout}></div>
-                        </div>
-                    </div>
+
+                    <BookingInfo
+                        bookedList={bookedList}
+                        gioChieu={gioChieu}
+                        hinhAnh={hinhAnh}
+                        ngayChieu={ngayChieu}
+                        tenCumRap={tenCumRap}
+                        tenPhim={tenPhim}
+                        tenRap={tenRap}
+                        tongGiaVe={tongGiaVe}
+                        callbackNext={handleCheckout}
+                    />
                 </div>
             </div>
         </div>

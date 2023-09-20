@@ -8,8 +8,27 @@ export type UserLogin = {
     accessToken: string;
 };
 
+export type ThongTinDatVeType = {
+    giaVe: number;
+    hinhAnh: string;
+    maVe: number;
+    ngayDat: string;
+    tenPhim: string;
+    thoiLuongPhim: number;
+    danhSachGhe: {
+        maCumRap: string;
+        maGhe: number;
+        maHeThongRap: string;
+        maRap: number;
+        tenCumRap: string;
+        tenGhe: string;
+        tenHeThongRap: string;
+        tenRap: string;
+    }[];
+};
+
 export type UserByAccessToken = Omit<UserLogin, 'accessToken'> & {
-    thongTinDatVe?: [];
+    thongTinDatVe?: ThongTinDatVeType[];
     loaiNguoiDung: {
         maLoaiNguoiDung: 'KhachHang' | 'QuanTri';
     };

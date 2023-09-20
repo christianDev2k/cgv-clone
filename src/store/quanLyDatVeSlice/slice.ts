@@ -1,17 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { DanhSachGheType, ListPhongVeType } from 'types';
-import { LayDanhSachPhongVeThunk } from '.';
+import { DatVeThunk, LayDanhSachPhongVeThunk } from '.';
 
 type initialStateProps = {
     danhSachPhongVe: ListPhongVeType;
-    isFetchingPhongVe: boolean;
     bookedList: DanhSachGheType[] | [];
+    bookingStatus: string;
+    isFetchingPhongVe: boolean;
+    isFetchingBooking: boolean;
 };
 
 const initialState: initialStateProps = {
     danhSachPhongVe: undefined,
     bookedList: [],
     isFetchingPhongVe: false,
+    bookingStatus: undefined,
+    isFetchingBooking: false,
 };
 
 const quanLyDatVeSlice = createSlice({
@@ -33,6 +37,16 @@ const quanLyDatVeSlice = createSlice({
             })
             .addCase(LayDanhSachPhongVeThunk.rejected, state => {
                 state.isFetchingPhongVe = false;
+            })
+            .addCase(DatVeThunk.pending, state => {
+                state.isFetchingBooking = true;
+            })
+            .addCase(DatVeThunk.fulfilled, (state, { payload }) => {
+                state.isFetchingBooking = false;
+                state.bookingStatus = payload;
+            })
+            .addCase(DatVeThunk.rejected, state => {
+                state.isFetchingBooking = false;
             });
     },
 });
