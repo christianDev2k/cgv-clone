@@ -17,6 +17,7 @@ const PATH = {
     allCGV: '/all-cgv',
     booking: '/booking/:id',
     checkout: '/checkout/:id',
+    notFound: '*',
 };
 
 export default PATH;

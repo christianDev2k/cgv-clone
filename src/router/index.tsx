@@ -106,6 +106,10 @@ const router: RouteObject[] = [
             },
         ],
     },
+    {
+        path: PATH.notFound,
+        element: <UpdatingPage status={'404'} />,
+    },
 ];
 
 export default router;
