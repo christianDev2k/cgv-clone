@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 // ~
 import { Movie } from 'types';
 import { Button } from 'components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Tag } from 'antd';
 import { LikeFilled } from '@ant-design/icons';
 import styles from './movie-card.module.scss';
@@ -16,6 +16,8 @@ type MovieCardProps = {
 
 const MovieCard = ({ movie, index }: MovieCardProps) => {
     const { hinhAnh, tenPhim, ngayKhoiChieu, danhGia, biDanh, maPhim } = movie;
+    const navigate = useNavigate();
+
     return (
         <div className="relative pb-10">
             <Link to={`/${maPhim}/movie-detail`} className="block border-[6px] border-black relative">
@@ -36,7 +38,11 @@ const MovieCard = ({ movie, index }: MovieCardProps) => {
                             Like
                         </Tag>
                     </div>
-                    <Button type="primary" className="uppercase !font-bold !px-2">
+                    <Button
+                        type="primary"
+                        className="uppercase !font-bold !px-1 !text-[11px] !sm:text-sm  sm:!px-2"
+                        onClick={() => navigate(`/${maPhim}/movie-detail`)}
+                    >
                         Xem chi tiết
                     </Button>
                 </div>

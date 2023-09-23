@@ -5,7 +5,6 @@ import { DatVeThunk, LayDanhSachPhongVeThunk } from '.';
 type initialStateProps = {
     danhSachPhongVe: ListPhongVeType;
     bookedList: DanhSachGheType[] | [];
-    bookingStatus: string;
     isFetchingPhongVe: boolean;
     isFetchingBooking: boolean;
 };
@@ -14,7 +13,6 @@ const initialState: initialStateProps = {
     danhSachPhongVe: undefined,
     bookedList: [],
     isFetchingPhongVe: false,
-    bookingStatus: undefined,
     isFetchingBooking: false,
 };
 
@@ -44,9 +42,8 @@ const quanLyDatVeSlice = createSlice({
             .addCase(DatVeThunk.pending, state => {
                 state.isFetchingBooking = true;
             })
-            .addCase(DatVeThunk.fulfilled, (state, { payload }) => {
+            .addCase(DatVeThunk.fulfilled, state => {
                 state.isFetchingBooking = false;
-                state.bookingStatus = payload;
                 state.bookedList = [];
             })
             .addCase(DatVeThunk.rejected, state => {

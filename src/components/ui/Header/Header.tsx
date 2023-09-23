@@ -274,7 +274,9 @@ const Header = () => {
                     <div className={cx('nav-icon', 'user-icon')}></div>
                 </li>
                 <li className="border-l border-gray-200 py-1 cursor-pointer">
-                    <div className={cx('nav-icon', 'lang-icon')}>EN</div>
+                    <div className={cx('nav-icon', 'lang-icon')} onClick={() => navigate(PATH.updatingPage)}>
+                        EN
+                    </div>
                 </li>
             </ul>
 
@@ -289,7 +291,7 @@ const Header = () => {
             {isOpenNavUser && (
                 <div className="block md:hidden">
                     <ul className={cx('nav-mobile')}>
-                        <Link to={PATH.login}>
+                        <Link to={PATH.account}>
                             <li className={cx('sub-user')}>TÀI KHOẢN</li>{' '}
                         </Link>
                         {!userLogin ? (

@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 // ~
 import { Button, Input } from 'components';
 import { useAuth } from 'hooks';
-import { RegisterSchema, RegisterSchemaType } from 'schema';
+import { UpdateSchema, UpdateSchemaType } from 'schema';
 import { useAppDispatch } from 'store';
 import { UpdateAccountThunk } from 'store/quanLyNguoiDungSlice';
 import { UpdateUser } from 'types';
@@ -19,9 +19,9 @@ const AccountDetailTemplate = () => {
         reset,
         formState: { errors },
         handleSubmit,
-    } = useForm<RegisterSchemaType>({
+    } = useForm<UpdateSchemaType>({
         mode: 'onBlur',
-        resolver: zodResolver(RegisterSchema),
+        resolver: zodResolver(UpdateSchema),
     });
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const AccountDetailTemplate = () => {
         });
     }, [reset, user]);
 
-    const onSubmit: SubmitHandler<RegisterSchemaType> = value => {
+    const onSubmit: SubmitHandler<UpdateSchemaType> = value => {
         const { taiKhoan, matKhau, email, soDt, maNhom, hoTen } = value;
 
         const updateData: UpdateUser = {
@@ -43,6 +43,7 @@ const AccountDetailTemplate = () => {
             maLoaiNguoiDung: 'KhachHang',
             hoTen,
         };
+
         dispatch(UpdateAccountThunk(updateData))
             .unwrap()
             .then(() => handleSuccess('Cập nhật thành công!'));

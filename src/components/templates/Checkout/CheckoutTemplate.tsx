@@ -50,8 +50,13 @@ const CheckoutTemplate = () => {
         };
         dispatch(DatVeThunk(ticketList))
             .unwrap()
-            .then(() => {
-                alert('Đặt vé thành công');
+            .then(res => {
+                toast.success(res, {
+                    closeButton: false,
+                    hideProgressBar: true,
+                    autoClose: 1000,
+                });
+                console.log('success');
                 navigate('/');
                 window.location.reload();
             })
@@ -67,10 +72,10 @@ const CheckoutTemplate = () => {
     if (!bookedList.length) return <Navigate to={PATH.allCGV} />;
     return (
         <div className="bg-[var(--body-color)]">
-            <div className="max-w-screen-lg mx-auto py-[30px]">
+            <div className="max-w-screen-lg mx-auto py-[30px] px-2 lg:px-0">
                 <h1 className="bg-[#231d1c] text-white font-bold text-lg text-center p-1.5">THANH TOÁN</h1>
-                <div className="my-[30px] flex gap-5">
-                    <div className="w-8/12">
+                <div className="my-[30px] sm:flex gap-5">
+                    <div className="sm:w-8/12">
                         <div className="text-sm">
                             <div className={cx('step-title')}>
                                 <h4>
@@ -110,7 +115,7 @@ const CheckoutTemplate = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-4/12">
+                    <div className="sm:w-4/12 mt-4 sm:mt-0">
                         <div className="text-sm">
                             <div className={cx('checkout-table')}>
                                 <h4 className={cx('row')}>Tổng cộng</h4>

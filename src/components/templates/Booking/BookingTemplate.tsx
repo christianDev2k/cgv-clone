@@ -21,7 +21,7 @@ const BookingTemplate = () => {
     useEffect(() => {
         dispatch(LayDanhSachPhongVeThunk(id));
     }, [dispatch, id]);
-    
+
     if (isFetchingPhongVe) return <LoadingUI />;
     if (!danhSachPhongVe) return;
     const {
@@ -45,7 +45,7 @@ const BookingTemplate = () => {
             });
         }
     };
-    
+
     const handleCheckout = () => {
         if (bookedList.length) {
             navigate(`/checkout/${id}`);
@@ -87,7 +87,8 @@ const BookingTemplate = () => {
                                 <div className="my-5 flex justify-center flex-wrap w-[500px] mx-auto">
                                     {danhSachGhe.map(item => {
                                         return (
-                                            <div
+                                            <button
+                                                disabled={item.daDat}
                                                 key={item.tenGhe}
                                                 className={cx(
                                                     'chair-item',
@@ -98,11 +99,12 @@ const BookingTemplate = () => {
                                                             ? 'booked'
                                                             : ''
                                                     }`,
+                                                    `${item.daDat ? 'paid' : ''}`,
                                                 )}
                                                 onClick={handleBooked(item)}
                                             >
                                                 {item.tenGhe}
-                                            </div>
+                                            </button>
                                         );
                                     })}
                                 </div>

@@ -99,12 +99,12 @@ const AllCGVTemplate = () => {
                                 </div>
                                 <div className="w-4/12 pl-5 border-l border-gray-500">
                                     <Link to={PATH.updatingPage}>
-                                        <Button type="primary" className="!text-xs !font-bold !block">
+                                        <Button type="primary" className="!text-xs !px-1 !font-bold !block">
                                             XEM BẢN ĐỒ
                                         </Button>
                                     </Link>
                                     <Link to={PATH.updatingPage}>
-                                        <Button type="primary" className="!text-xs !font-bold !block mt-4">
+                                        <Button type="primary" className="!text-xs sm:px !px-1 !font-bold !block mt-4">
                                             LIÊN HỆ CGV
                                         </Button>
                                     </Link>

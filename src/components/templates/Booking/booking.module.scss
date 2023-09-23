@@ -14,4 +14,11 @@
         color: var(--white);
         background-color: var(--primary);
     }
+
+    &.paid {
+        cursor: default;
+        background-color: #ccc;
+        color: var(--white);
+        border: 1px solid #ccc;
+    }
 }
